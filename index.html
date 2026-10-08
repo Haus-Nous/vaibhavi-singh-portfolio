@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaibhavi Singh — AI Systems Builder</title>
+  <meta name="description" content="AI-native systems builder specializing in RAG, multi-agent orchestration, and production LLM pipelines. Portfolio of Vaibhavi Singh.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scan-line overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">VAIBHAVI SINGH</span>
+      </a>
+      <div class="nav-links">
+        <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#research" class="nav-link">RESEARCH</a>
+        <a href="#skills" class="nav-link">SYSTEMS</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#projects" class="nav-link">PROJECTS</a>
+      <a href="#research" class="nav-link">RESEARCH</a>
+      <a href="#skills" class="nav-link">SYSTEMS</a>
+      <a href="#contact" class="nav-link">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="hero">
+    <div class="hero-grid">
+      <div class="hero-label">AI SYSTEMS BUILDER &amp; RESEARCHER</div>
+      <h1 class="hero-title">
+        <span class="hero-line">Building</span>
+        <span class="hero-line accent">Reasoning-Driven</span>
+        <span class="hero-line">AI Platforms<span class="cursor">_</span></span>
+      </h1>
+      <p class="hero-desc">
+        I specialize in Retrieval-Augmented Generation (RAG) and multi-agent orchestration. 
+        My focus is on transparent AI reasoning, scalable backend architecture, and transforming 
+        unstructured inputs into structured, strategic outputs.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">07</span>
+          <span class="stat-label">PROJECTS</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">02</span>
+          <span class="stat-label">RESEARCH</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">CURIOSITY</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+        <a href="/Vaibhavi_Singh_Resume.html" class="btn btn-ghost" target="_blank">RESUME (HTML) ↗</a>
+        <a href="/Vaibhavi_Singh_Resume.docx" class="btn btn-ghost" download>RESUME (DOCX) ↓</a>
+      </div>
+    </div>
+    <div class="hero-decoration" aria-hidden="true">
+      <div class="tech-circle">
+        <svg viewBox="0 0 200 200" class="circle-svg">
+          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+          <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="4" fill="#FF0000"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- Focus Areas -->
+  <section id="focus" class="section">
+    <div class="section-header">
+      <span class="section-index">01</span>
+      <h2 class="section-title">CORE FOCUS AREAS</h2>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-icon">⬡</div>
+        <h3>Enterprise RAG</h3>
+        <p>Hybrid retrieval pipelines with cross-encoder re-ranking and citation enforcement</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon">◈</div>
+        <h3>Local SLM Inference</h3>
+        <p>Privacy-first offline AI with Ollama, benchmarking, and structured output validation</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon">◇</div>
+        <h3>Multi-Agent Orchestration</h3>
+        <p>LangGraph-powered autonomous agent systems with failure-aware recovery</p>
+      </div>
+      <div class="focus-card">
+        <div class="focus-icon">○</div>
+        <h3>Agent Reliability</h3>
+        <p>LLMOps observability, regression gating, and production monitoring layers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <span class="section-index">02</span>
+      <h2 class="section-title">THE ENGINEERING PORTFOLIO</h2>
+    </div>
+
+    <!-- Featured: Hitman -->
+    <div class="project-featured" id="project-hitman">
+      <div class="project-featured-badge">FEATURED · LIVE</div>
+      <div class="project-featured-content">
+        <div class="project-featured-info">
+          <h3 class="project-name">HITMAN</h3>
+          <p class="project-type">Fantasy Cricket Platform (PWA)</p>
+          <p class="project-desc">
+            Full-stack Progressive Web App for IPL 2026 fantasy cricket. Real-time live scores 
+            via CricketData.org, private leagues with invite codes, dynamic payouts, and 
+            WebSocket-powered ball-by-ball commentary. Deployed on Vercel with Neon.tech PostgreSQL.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://hitman-drab.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+          </div>
+        </div>
+        <div class="project-featured-visual">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">hitman — live</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">status</span></div>
+              <div class="terminal-line"><span class="t-output">IPL 2026 · MATCH LIVE</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --active</span></div>
+              <div class="terminal-line"><span class="t-output">Private leagues: 12 active</span></div>
+              <div class="terminal-line"><span class="t-output">Players online: 847</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --live</span></div>
+              <div class="terminal-line"><span class="t-output accent">Broadcasting real-time...</span></div>
+              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured: goku.ai -->
+    <div class="project-featured" id="project-goku" style="margin-top: 24px;">
+      <div class="project-featured-badge">FEATURED · LIVE</div>
+      <div class="project-featured-content">
+        <div class="project-featured-info">
+          <h3 class="project-name">GOKU.AI</h3>
+          <p class="project-type">AI Strategy Execution Platform</p>
+          <p class="project-desc">
+            Full-stack AI strategy execution platform for building custom, industry-specific 
+            AI tools. Features an interactive Console for natural language problem definition, 
+            modular capability engines (Strategy Execution, Process Automation, NL-to-SQL Analytics, 
+            Risk & Governance), and a Framework Repository with AI-enhanced consulting frameworks.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">React</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Glassmorphism</span>
+          </div>
+          <div class="project-links">
+            <a href="https://haus-nous.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+          </div>
+        </div>
+        <div class="project-featured-visual">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">goku.ai — console</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">describe --challenge</span></div>
+              <div class="terminal-line"><span class="t-output">Analyzing market dynamics...</span></div>
+              <div class="terminal-line"><span class="t-output">Building financial models...</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">pilot --deploy</span></div>
+              <div class="terminal-line"><span class="t-output">Pilot Duration: 14d · Accuracy: 97%</span></div>
+              <div class="terminal-line"><span class="t-output accent">Strategy ready for execution</span></div>
+              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="project-grid">
+
+      <article class="project-card" id="project-rag">
+        <div class="project-card-header">
+          <span class="project-number">01</span>
+          <span class="project-status">COMPLETE</span>
+        </div>
+        <h3 class="project-name">Production RAG Application</h3>
+        <p class="project-type">Domain-Specific "Ask My Docs" System</p>
+        <ul class="project-details">
+          <li>Hybrid search: BM25 + Vector (ChromaDB/Weaviate)</li>
+          <li>Cross-Encoder Re-ranking for precision</li>
+          <li>Strict citation enforcement — no hallucination</li>
+          <li>CI-gated evaluation with Ragas</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Langchain</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Weaviate</span>
+          <span class="tag">Ragas</span>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-slm">
+        <div class="project-card-header">
+          <span class="project-number">02</span>
+          <span class="project-status">COMPLETE</span>
+        </div>
+        <h3 class="project-name">Local SLM App with Ollama</h3>
+        <p class="project-type">Offline LLM Inference Application</p>
+        <ul class="project-details">
+          <li>Ollama-powered 3–7B param local inference</li>
+          <li>Pydantic-validated JSON output + retry logic</li>
+          <li>Benchmarking: tok/s, TTFT, temperature variance</li>
+          <li>Privacy-first, zero external API calls</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Ollama</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Pydantic</span>
+          <span class="tag">Llama 3.2</span>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-monitoring">
+        <div class="project-card-header">
+          <span class="project-number">03</span>
+          <span class="project-status">COMPLETE</span>
+        </div>
+        <h3 class="project-name">Monitoring &amp; Observability</h3>
+        <p class="project-type">LLMOps Production Pipeline Tracking</p>
+        <ul class="project-details">
+          <li>Full pipeline tracing via LangFuse/LangSmith</li>
+          <li>p50/p95 latency, cost-per-request metrics</li>
+          <li>Automated regression gating in CI</li>
+          <li>Chunk retrieval + re-ranker audit trails</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">LangFuse</span>
+          <span class="tag">LangSmith</span>
+          <span class="tag">BrainTrust</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-finetune">
+        <div class="project-card-header">
+          <span class="project-number">04</span>
+          <span class="project-status">COMPLETE</span>
+        </div>
+        <h3 class="project-name">Fine-Tuning: LoRA &amp; DPO</h3>
+        <p class="project-type">Task-Specific Model Optimization</p>
+        <ul class="project-details">
+          <li>SFT via QLoRA for structured JSON extraction</li>
+          <li>DPO training on positive vs. negative outputs</li>
+          <li>Measurable JSON validity rate improvement</li>
+          <li>Before/after exact match benchmarks</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">QLoRA</span>
+          <span class="tag">HuggingFace</span>
+          <span class="tag">Axolotl</span>
+          <span class="tag">DPO</span>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-voice">
+        <div class="project-card-header">
+          <span class="project-number">05</span>
+          <span class="project-status">COMPLETE</span>
+        </div>
+        <h3 class="project-name">Real-Time Voice Pipeline</h3>
+        <p class="project-type">Streaming Multimodal Conversational Agent</p>
+        <ul class="project-details">
+          <li>WebSocket: ASR → LLM → TTS streaming</li>
+          <li>Deepgram/Whisper + ElevenLabs/Cartesia</li>
+          <li>Component latency budget optimization</li>
+          <li>Graceful degradation + fallback caching</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">WebSockets</span>
+          <span class="tag">Deepgram</span>
+          <span class="tag">ElevenLabs</span>
+          <span class="tag">Whisper</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research" class="section">
+    <div class="section-header">
+      <span class="section-index">03</span>
+      <h2 class="section-title">ONGOING RESEARCH</h2>
+    </div>
+    <div class="research-grid">
+      <article class="research-card">
+        <div class="research-indicator"></div>
+        <div class="research-content">
+          <h3>Failure-Aware Agent Framework (FAAF)</h3>
+          <p class="research-subtitle">Autonomous Agent Reliability &amp; Failure Recovery</p>
+          <p>Researching runtime failure detection in long-horizon autonomous systems. Developing a novel taxonomy of LLM agent failures — infinite loops, tool misuse, hallucinated execution success — and implementing recovery strategies including state rollbacks and self-reflection loops.</p>
+        </div>
+      </article>
+      <article class="research-card">
+        <div class="research-indicator"></div>
+        <div class="research-content">
+          <h3>Wireless Channel Prediction with AI</h3>
+          <p class="research-subtitle">Deep Learning for Communication Networks</p>
+          <p>Replacing traditional mathematical predictors with sequence-to-sequence deep learning architectures (LSTM/GRU encoder-decoders) mapped directly to hardware SDR metrics (SNR/RSSI). Optimizing transmission parameters asynchronously to lower network latency.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills / Systems -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <span class="section-index">04</span>
+      <h2 class="section-title">SYSTEMS &amp; TOOLS</h2>
+    </div>
+    <div class="skills-matrix">
+      <div class="skill-row">
+        <span class="skill-category">LANGUAGES</span>
+        <span class="skill-items">Python · JavaScript · TypeScript · SQL</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">AI SYSTEMS</span>
+        <span class="skill-items">LLMs · RAG · Multi-Agent · Prompt Engineering · SLMs</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">FRAMEWORKS</span>
+        <span class="skill-items">Next.js · FastAPI · React · Langchain · LangGraph · TRL · WebSockets</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">DATABASES</span>
+        <span class="skill-items">PostgreSQL · Neon · pgvector · ChromaDB · Weaviate · Redis</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">TOOLING</span>
+        <span class="skill-items">Docker · Vercel · Ollama · LangFuse · Ragas · QLoRA · Axolotl</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <span class="section-index">05</span>
+      <h2 class="section-title">CONNECT</h2>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:vaibhavisingh6655@gmail.com" class="contact-card" id="contact-email">
+        <span class="contact-label">EMAIL</span>
+        <span class="contact-value">vaibhavisingh6655@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/vaibhavi-singh-213518378/" class="contact-card" target="_blank" id="contact-linkedin">
+        <span class="contact-label">LINKEDIN</span>
+        <span class="contact-value">vaibhavi-singh ↗</span>
+      </a>
+      <a href="https://github.com/Haus-Nous" class="contact-card" target="_blank" id="contact-github">
+        <span class="contact-label">GITHUB</span>
+        <span class="contact-value">Haus-Nous ↗</span>
+      </a>
+      <a href="https://hitman-drab.vercel.app/" class="contact-card" target="_blank" id="contact-hitman">
+        <span class="contact-label">HITMAN APP</span>
+        <span class="contact-value">hitman-drab.vercel.app ↗</span>
+      </a>
+      <a href="https://haus-nous.vercel.app/" class="contact-card" target="_blank" id="contact-goku">
+        <span class="contact-label">GOKU.AI</span>
+        <span class="contact-value">haus-nous.vercel.app ↗</span>
+      </a>
+    </div>
+    <div class="contact-footer">
+      <p>Jaipur, India · B.Tech CS @ Manipal University Jaipur · 2024–Present</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-left">© 2026 VAIBHAVI SINGH</span>
+      <span class="footer-right">DESIGNED WITH PRECISION</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

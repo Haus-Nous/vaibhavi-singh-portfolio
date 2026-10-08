@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Build and Deployment
+.vercel/
+.next/
+dist/
+build/
+out/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor & IDE Directories
+.vscode/
+.idea/
