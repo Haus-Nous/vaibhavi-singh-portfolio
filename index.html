@@ -269,108 +269,195 @@
     <!-- Project Grid -->
     <div class="project-grid">
 
+      <!-- 01: Enterprise RAG Architecture -->
       <article class="project-card" id="project-rag">
         <div class="project-card-header">
           <span class="project-number">01</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Production RAG Application</h3>
-        <p class="project-type">Domain-Specific "Ask My Docs" System</p>
+        <h3 class="project-name">Enterprise RAG Architecture</h3>
+        <p class="project-type">Production-Ready Hybrid Retrieval &amp; Evaluation System</p>
         <ul class="project-details">
-          <li>Hybrid search: BM25 + Vector (ChromaDB/Weaviate)</li>
-          <li>Cross-Encoder Re-ranking for precision</li>
-          <li>Strict citation enforcement — no hallucination</li>
-          <li>CI-gated evaluation with Ragas</li>
+          <li>Hybrid retrieval combining sparse lexical ranking (BM25) with dense vector embeddings</li>
+          <li>Cross-encoder re-ranking (ms-marco-MiniLM-L-6-v2) for noise elimination</li>
+          <li>Strict citation enforcement and source verification to prevent hallucinations</li>
+          <li>Automated quality evaluation and regression checks with Ragas and HF datasets</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">Langchain</span>
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">BM25</span>
           <span class="tag">ChromaDB</span>
-          <span class="tag">Weaviate</span>
+          <span class="tag">Cross-Encoder</span>
           <span class="tag">Ragas</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/Enterprise_RAG_Architecture" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-slm">
+      <!-- 02: RAGOps -->
+      <article class="project-card" id="project-ragops">
         <div class="project-card-header">
           <span class="project-number">02</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Local SLM App with Ollama</h3>
-        <p class="project-type">Offline LLM Inference Application</p>
+        <h3 class="project-name">RAGOps</h3>
+        <p class="project-type">LLMOps Observability, Profiling &amp; Regression Gating</p>
         <ul class="project-details">
-          <li>Ollama-powered 3–7B param local inference</li>
-          <li>Pydantic-validated JSON output + retry logic</li>
-          <li>Benchmarking: tok/s, TTFT, temperature variance</li>
-          <li>Privacy-first, zero external API calls</li>
+          <li>Decorator-based latency profiling across retrieval, re-ranking, and generation</li>
+          <li>Latency distribution analysis (p50/p95) and token utilization tracking via SQLite</li>
+          <li>Interactive Streamlit and Plotly dashboard visualizing execution traces</li>
+          <li>CI/CD regression gating asserting quality thresholds on evaluation datasets</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">Ollama</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Pydantic</span>
-          <span class="tag">Llama 3.2</span>
+          <span class="tag">Python</span>
+          <span class="tag">LangFuse</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">LLMOps</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/RAGOps" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-monitoring">
+      <!-- 03: LocalLLM Lab -->
+      <article class="project-card" id="project-localllm">
         <div class="project-card-header">
           <span class="project-number">03</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Monitoring &amp; Observability</h3>
-        <p class="project-type">LLMOps Production Pipeline Tracking</p>
+        <h3 class="project-name">LocalLLM Lab</h3>
+        <p class="project-type">Offline SLM Inference &amp; Hardware Benchmarking Harness</p>
         <ul class="project-details">
-          <li>Full pipeline tracing via LangFuse/LangSmith</li>
-          <li>p50/p95 latency, cost-per-request metrics</li>
-          <li>Automated regression gating in CI</li>
-          <li>Chunk retrieval + re-ranker audit trails</li>
+          <li>Offline 3–7B parameter model orchestration via Ollama (Llama 3.2, Phi-3, Qwen)</li>
+          <li>Strict Pydantic v2 schema validation with automated query retry and correction loops</li>
+          <li>Benchmarking harness evaluating memory utilization (psutil), TTFT, and tok/s throughput</li>
+          <li>Privacy-first local execution with zero external network dependencies</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">LangFuse</span>
-          <span class="tag">LangSmith</span>
-          <span class="tag">BrainTrust</span>
-          <span class="tag">CI/CD</span>
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">Pydantic</span>
+          <span class="tag">Llama 3.2</span>
+          <span class="tag">Benchmarking</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/LocalLLM-Lab" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-finetune">
+      <!-- 04: Bhoomi-Setu -->
+      <article class="project-card" id="project-bhoomi">
         <div class="project-card-header">
           <span class="project-number">04</span>
-          <span class="project-status">COMPLETE</span>
+          <span class="project-status">LIVE DEMO</span>
         </div>
-        <h3 class="project-name">Fine-Tuning: LoRA &amp; DPO</h3>
-        <p class="project-type">Task-Specific Model Optimization</p>
+        <h3 class="project-name">Bhoomi-Setu</h3>
+        <p class="project-type">Land Record Intelligence &amp; Verification Assistant</p>
         <ul class="project-details">
-          <li>SFT via QLoRA for structured JSON extraction</li>
-          <li>DPO training on positive vs. negative outputs</li>
-          <li>Measurable JSON validity rate improvement</li>
-          <li>Before/after exact match benchmarks</li>
+          <li>Transforms fragmented survey records into traceable evidence and deterministic verification</li>
+          <li>Three-way area reconciliation cross-referencing maps, mutations, and registry data</li>
+          <li>Synthetic-first parcel intelligence designed for pre-survey readiness exploration</li>
+          <li>Responsive Next.js web application deployed on Vercel</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">QLoRA</span>
-          <span class="tag">HuggingFace</span>
-          <span class="tag">Axolotl</span>
-          <span class="tag">DPO</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">React</span>
+          <span class="tag">Parcel Intelligence</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="project-links">
+          <a href="https://bhoomi-setu-xi.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+          <a href="https://github.com/Haus-Nous/Bhoomi-Setu" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-voice">
+      <!-- 05: Momentum OS -->
+      <article class="project-card" id="project-momentum">
         <div class="project-card-header">
           <span class="project-number">05</span>
-          <span class="project-status">COMPLETE</span>
+          <span class="project-status">LIVE DEMO</span>
         </div>
-        <h3 class="project-name">Real-Time Voice Pipeline</h3>
-        <p class="project-type">Streaming Multimodal Conversational Agent</p>
+        <h3 class="project-name">Momentum OS</h3>
+        <p class="project-type">Personal Productivity Operating System</p>
         <ul class="project-details">
-          <li>WebSocket: ASR → LLM → TTS streaming</li>
-          <li>Deepgram/Whisper + ElevenLabs/Cartesia</li>
-          <li>Component latency budget optimization</li>
-          <li>Graceful degradation + fallback caching</li>
+          <li>Real-time 0–100 Life Score SVG gauge evaluating habit streaks, completion, and velocity</li>
+          <li>6-view task manager (Kanban, Gantt, Timeline, Calendar, Matrix, Data Table)</li>
+          <li>Habit lifecycle engine with 365-day contribution heatmaps and milestones</li>
+          <li>Built with Next.js 15 App Router, Zustand state management, and Web Audio API</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">WebSockets</span>
-          <span class="tag">Deepgram</span>
-          <span class="tag">ElevenLabs</span>
-          <span class="tag">Whisper</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Zustand</span>
+          <span class="tag">Framer Motion</span>
+          <span class="tag">Recharts</span>
+        </div>
+        <div class="project-links">
+          <a href="https://momentum-os-olive.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+          <a href="https://github.com/Haus-Nous/momentum_os" class="project-link" target="_blank">GITHUB REPO ↗</a>
+        </div>
+      </article>
+
+      <!-- 06: The White Knight -->
+      <article class="project-card" id="project-whiteknight">
+        <div class="project-card-header">
+          <span class="project-number">06</span>
+          <span class="project-status">LIVE DEMO</span>
+        </div>
+        <h3 class="project-name">The White Knight</h3>
+        <p class="project-type">Autonomous Job Application Command Center</p>
+        <ul class="project-details">
+          <li>Analyzes job descriptions to score candidate resume alignment against ATS keywords</li>
+          <li>Automated profile ingestion and document drafting to reduce manual application overhead</li>
+          <li>Application pipeline tracking across multiple candidate stages and statuses</li>
+          <li>Full-stack web application built with TypeScript and Next.js</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">ATS Scoring</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="project-links">
+          <a href="https://the-white-knight-theta.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+          <a href="https://github.com/Haus-Nous/-The_White_knight" class="project-link" target="_blank">GITHUB REPO ↗</a>
+        </div>
+      </article>
+
+      <!-- 07: NeuroProx -->
+      <article class="project-card" id="project-neuroprox">
+        <div class="project-card-header">
+          <span class="project-number">07</span>
+          <span class="project-status">HACKATHON TEAM PROJECT</span>
+        </div>
+        <h3 class="project-name">NeuroProx</h3>
+        <p class="project-type">EMG Gesture Classification &amp; Offline Voice Control</p>
+        <ul class="project-details">
+          <li>Collaborative hackathon project for bionic prosthetic arm control</li>
+          <li>Extracted time-domain signal features (RMS, MAV, zero-crossings, variance) using NumPy and SciPy</li>
+          <li>Trained leakage-safe gesture classifiers using scikit-learn (RandomForest, SVM) with Stratified K-Fold validation</li>
+          <li>Built offline voice control integration using Vosk via an immutable command bus</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Vosk</span>
+          <span class="tag">EMG Sensors</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/Neuroprox" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
