@@ -124,7 +124,7 @@
       <h2 class="section-title">THE ENGINEERING PORTFOLIO</h2>
     </div>
 
-    <!-- Featured: Hitman -->
+    <!-- Featured 1: Hitman -->
     <div class="project-featured" id="project-hitman">
       <div class="project-featured-badge">FEATURED · LIVE</div>
       <div class="project-featured-content">
@@ -132,21 +132,21 @@
           <h3 class="project-name">HITMAN</h3>
           <p class="project-type">Fantasy Cricket Platform (PWA)</p>
           <p class="project-desc">
-            Full-stack Progressive Web App for IPL 2026 fantasy cricket. Real-time live scores 
-            via CricketData.org, private leagues with invite codes, dynamic payouts, and 
-            WebSocket-powered ball-by-ball commentary. Deployed on Vercel with Neon.tech PostgreSQL.
+            Full-stack Progressive Web App for IPL fantasy cricket. Real-time live scores, 
+            private leagues with unique invite codes, relational persistence layer designed with 
+            PostgreSQL and Prisma ORM, and NextAuth session management. Deployed on Vercel.
           </p>
           <div class="project-tags">
             <span class="tag">Next.js</span>
             <span class="tag">TypeScript</span>
             <span class="tag">PostgreSQL</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">Vercel</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">NextAuth</span>
             <span class="tag">PWA</span>
           </div>
           <div class="project-links">
             <a href="https://hitman-drab.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+            <a href="https://github.com/Haus-Nous/Hitman" class="project-link" target="_blank">GITHUB REPO ↗</a>
           </div>
         </div>
         <div class="project-featured-visual">
@@ -159,12 +159,13 @@
             </div>
             <div class="terminal-body">
               <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">status</span></div>
-              <div class="terminal-line"><span class="t-output">IPL 2026 · MATCH LIVE</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --active</span></div>
-              <div class="terminal-line"><span class="t-output">Private leagues: 12 active</span></div>
-              <div class="terminal-line"><span class="t-output">Players online: 847</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --live</span></div>
-              <div class="terminal-line"><span class="t-output accent">Broadcasting real-time...</span></div>
+              <div class="terminal-line"><span class="t-output">PRISMA · POSTGRESQL · CONNECTED</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">sync --live</span></div>
+              <div class="terminal-line"><span class="t-output">Fixture sync active · NextAuth enabled</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --mode</span></div>
+              <div class="terminal-line"><span class="t-output">Private leagues &amp; invite-code routing ready</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --feed</span></div>
+              <div class="terminal-line"><span class="t-output accent">Ball-by-ball commentary ingest active</span></div>
               <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
             </div>
           </div>
@@ -172,29 +173,28 @@
       </div>
     </div>
 
-    <!-- Featured: goku.ai -->
-    <div class="project-featured" id="project-goku" style="margin-top: 24px;">
-      <div class="project-featured-badge">FEATURED · LIVE</div>
+    <!-- Featured 2: RecoveryOS -->
+    <div class="project-featured" id="project-recoveryos" style="margin-top: 24px;">
+      <div class="project-featured-badge">FEATURED · AI BUILDATHON</div>
       <div class="project-featured-content">
         <div class="project-featured-info">
-          <h3 class="project-name">GOKU.AI</h3>
-          <p class="project-type">AI Strategy Execution Platform</p>
+          <h3 class="project-name">RecoveryOS</h3>
+          <p class="project-type">Payment Reliability &amp; Revenue Recovery Control Plane</p>
           <p class="project-desc">
-            Full-stack AI strategy execution platform for building custom, industry-specific 
-            AI tools. Features an interactive Console for natural language problem definition, 
-            modular capability engines (Strategy Execution, Process Automation, NL-to-SQL Analytics, 
-            Risk & Governance), and a Framework Repository with AI-enhanced consulting frameworks.
+            Autonomous payment failure recovery control plane built for the Razorpay AI Buildathon. 
+            Enforces a non-negotiable architectural invariant: AI proposes, policy authorizes, infrastructure executes. 
+            Features anomaly classification, root-cause analysis, and dynamic policy evaluation.
           </p>
           <div class="project-tags">
-            <span class="tag">Next.js</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Vercel</span>
-            <span class="tag">Glassmorphism</span>
+            <span class="tag">Python</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">AI Agents</span>
           </div>
           <div class="project-links">
-            <a href="https://haus-nous.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+            <a href="https://github.com/Haus-Nous/RecoveryOS" class="project-link" target="_blank">GITHUB REPO ↗</a>
           </div>
         </div>
         <div class="project-featured-visual">
@@ -203,15 +203,62 @@
               <span class="terminal-dot red"></span>
               <span class="terminal-dot yellow"></span>
               <span class="terminal-dot green"></span>
-              <span class="terminal-title">goku.ai — console</span>
+              <span class="terminal-title">recoveryos — control-plane</span>
             </div>
             <div class="terminal-body">
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">describe --challenge</span></div>
-              <div class="terminal-line"><span class="t-output">Analyzing market dynamics...</span></div>
-              <div class="terminal-line"><span class="t-output">Building financial models...</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">pilot --deploy</span></div>
-              <div class="terminal-line"><span class="t-output">Pilot Duration: 14d · Accuracy: 97%</span></div>
-              <div class="terminal-line"><span class="t-output accent">Strategy ready for execution</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">invariant --check</span></div>
+              <div class="terminal-line"><span class="t-output accent">AI PROPOSES · POLICY AUTHORIZES · INFRASTRUCTURE EXECUTES</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">anomaly --detect</span></div>
+              <div class="terminal-line"><span class="t-output">Root cause: Downstream gateway timeout spike</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">policy --evaluate</span></div>
+              <div class="terminal-line"><span class="t-output">Authorized: Idempotent adaptive retry path</span></div>
+              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured 3: Misfire -->
+    <div class="project-featured" id="project-misfire" style="margin-top: 24px;">
+      <div class="project-featured-badge">FEATURED · LIVE</div>
+      <div class="project-featured-content">
+        <div class="project-featured-info">
+          <h3 class="project-name">Misfire</h3>
+          <p class="project-type">Intelligent EdTech Diagnostic Engine</p>
+          <p class="project-desc">
+            Cognitive diagnostic engine that identifies the specific misconception behind wrong student answers 
+            instead of treating mistakes as binary failures. Generates targeted step-by-step remediation tailored 
+            to student reasoning patterns. Deployed on Vercel with Next.js.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">LLM Diagnostics</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://misfire-eta.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous/misfire" class="project-link" target="_blank">GITHUB REPO ↗</a>
+          </div>
+        </div>
+        <div class="project-featured-visual">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">misfire — diagnostic-engine</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">diagnose --attempt</span></div>
+              <div class="terminal-line"><span class="t-output">Evaluating student reasoning path...</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">misconception --identify</span></div>
+              <div class="terminal-line"><span class="t-output">Classified: Sign inversion during term distribution</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">remediation --dispatch</span></div>
+              <div class="terminal-line"><span class="t-output accent">Targeted concept remediation generated</span></div>
               <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
             </div>
           </div>
