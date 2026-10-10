@@ -23,3 +23,6 @@ Thumbs.db
 # Editor & IDE Directories
 .vscode/
 .idea/
+
+# Internal working files
+_sync/

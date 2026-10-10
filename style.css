@@ -729,6 +729,100 @@ ul { list-style: none; }
   font-size: 12px;
 }
 
+.project-card .project-links {
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.project-card .project-link {
+  padding: 6px 14px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* --- Experience --- */
+.experience-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.experience-card {
+  border: 1px solid var(--border);
+  padding: var(--space-xl);
+  background: var(--bg);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.experience-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.experience-role {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.experience-company {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.experience-subrole {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.experience-period {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+}
+
+.experience-details {
+  list-style: none;
+}
+
+.experience-details li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.experience-details li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
 /* --- Research --- */
 .research-grid {
   display: grid;
