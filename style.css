@@ -765,7 +765,6 @@ ul { list-style: none; }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: var(--space-md);
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
@@ -804,6 +803,7 @@ ul { list-style: none; }
 
 .experience-details {
   list-style: none;
+  margin-top: var(--space-md);
 }
 
 .experience-details li {
