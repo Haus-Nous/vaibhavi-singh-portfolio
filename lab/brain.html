@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A BRAIN BUILT FROM CODE — WebGL Prototype</title>
+  <meta name="description" content="Procedural 3D code-brain point cloud built from thousands of real repository tokens. Phase A WebGL Prototype.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+  <!-- Google Fonts: Inter Tight, Instrument Serif (italic), JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/lab/brain.css">
+</head>
+<body>
+
+  <!-- WebGL Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- Interactive Cursor Token Readout -->
+  <div id="token-inspector"></div>
+
+  <!-- Prototype Overlay UI -->
+  <div class="prototype-ui">
+    
+    <!-- Header -->
+    <header class="proto-header">
+      <div class="proto-brand">
+        <span class="proto-label">LAB / PHASE A PROTOTYPE</span>
+        <h1 class="proto-title">A Brain Built From <em>Code</em>.</h1>
+      </div>
+
+      <div class="proto-controls">
+        <button id="btn-calm" class="btn-ctrl" type="button" title="Toggle Calm Mode (stops all particle motion)">
+          <span class="status-dot"></span>
+          <span class="calm-state-text">CALM (OFF)</span>
+        </button>
+        <button id="btn-reset-assembly" class="btn-ctrl" type="button" title="Replay the 2.5s code-brain compilation sequence">
+          <span>RECOMPILE ↺</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hemisphere Focus Cards -->
+    <div class="proto-hemispheres">
+      <!-- Left Hemisphere -->
+      <div id="hemi-tag-left" class="hemisphere-tag left" title="Hover to illuminate Left Hemisphere">
+        <span class="hemi-title">LEFT / LOGIC + SYSTEMS</span>
+        <p class="hemi-desc">Deterministic execution, retrieval pipelines, and full-stack software architecture.</p>
+        <span class="hemi-skills">RAG · AGENTS · FULL-STACK</span>
+      </div>
+
+      <!-- Right Hemisphere -->
+      <div id="hemi-tag-right" class="hemisphere-tag right" title="Hover to illuminate Right Hemisphere">
+        <span class="hemi-title">RIGHT / RESEARCH + DATA</span>
+        <p class="hemi-desc">Statistical learning, latency profiling, empirical evaluation, and novel agent research.</p>
+        <span class="hemi-skills">DATA &amp; ML · LLMOPS · RESEARCH</span>
+      </div>
+    </div>
+
+    <!-- Bottom HUD & Diagnostics -->
+    <footer class="proto-footer">
+      <div class="proto-regions">
+        <button class="region-btn" data-region="0" type="button">01 RAG &amp; RETRIEVAL</button>
+        <button class="region-btn" data-region="1" type="button">02 AGENTS</button>
+        <button class="region-btn" data-region="2" type="button">03 FULL-STACK</button>
+        <button class="region-btn" data-region="3" type="button">04 DATA &amp; ML</button>
+        <button class="region-btn" data-region="4" type="button">05 LLMOPS &amp; EVAL</button>
+        <button class="region-btn" data-region="5" type="button">06 RESEARCH</button>
+      </div>
+
+      <div class="proto-metrics">
+        <div class="metric-item">FPS: <span id="metric-fps">60</span></div>
+        <div class="metric-item">PARTICLES: <span id="metric-particle-count">7,200</span></div>
+        <div class="metric-item">DRAW CALLS: <span>1</span></div>
+      </div>
+
+      <div class="proto-footnote">
+        <!-- This brain is built from code in my repositories. -->
+        <span>This brain is built from code in my <a href="https://github.com/Haus-Nous" target="_blank">repositories</a>.</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Pinned Local Three.js Vendor -->
+  <script src="/vendor/three.min.js"></script>
+  <!-- Prototype WebGL Logic -->
+  <script src="/lab/brain.js"></script>
+</body>
+</html>

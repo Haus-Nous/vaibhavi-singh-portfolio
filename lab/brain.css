@@ -1,0 +1,363 @@
+/* ==========================================================================
+   A BRAIN BUILT FROM CODE — Prototype Stylesheet
+   Palette: #050505 Charcoal · Off-White · Icy Blue · Champagne
+   ========================================================================== */
+
+:root {
+  --bg-void: #050505;
+  --bg-surface: #0a0a0d;
+  --text-main: #f0eee9;
+  --text-muted: #8a8880;
+  --text-subtle: #52504b;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(255, 255, 255, 0.22);
+  
+  --color-left: #7bc4d6;      /* Icy blue / cyan for Logic & Systems */
+  --color-right: #d8c29d;     /* Warm champagne / pale gold for Research & Data */
+  --color-active: #ff8e72;    /* Rare peach/coral impulse */
+  --color-neural: #4a7a85;    /* Desaturated teal for neural pathways */
+  
+  --font-grotesk: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-void);
+  color: var(--text-main);
+  font-family: var(--font-grotesk);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: grab;
+}
+
+#canvas-container:active {
+  cursor: grabbing;
+}
+
+canvas#brain-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* ==========================================================================
+   Prototype UI Overlay (Minimalist, Art-Directed, Zero Clutter)
+   ========================================================================== */
+
+.prototype-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(16px, 3vw, 32px);
+}
+
+.prototype-ui * {
+  pointer-events: auto;
+}
+
+/* Top Header */
+.proto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.proto-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proto-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.proto-title {
+  font-family: var(--font-grotesk);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.proto-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-right);
+  padding: 0 2px;
+}
+
+/* Controls Pill Bar */
+.proto-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 15, 18, 0.75);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.btn-ctrl {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+}
+
+.btn-ctrl:hover {
+  color: var(--text-main);
+  border-color: var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-ctrl.active {
+  color: #050505;
+  background: var(--text-main);
+  border-color: var(--text-main);
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-left);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--color-left);
+}
+
+.btn-ctrl.active .status-dot {
+  background: #050505;
+  box-shadow: none;
+}
+
+/* Center Hemisphere Focus Tags */
+.proto-hemispheres {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 48px);
+  pointer-events: none;
+}
+
+.hemisphere-tag {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(10, 10, 13, 0.7);
+  border: 1px solid var(--border-subtle);
+  padding: 12px 18px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 240px;
+}
+
+.hemisphere-tag:hover, .hemisphere-tag.highlighted {
+  border-color: var(--border-active);
+  background: rgba(20, 20, 26, 0.9);
+  transform: translateY(-2px);
+}
+
+.hemisphere-tag.left:hover, .hemisphere-tag.left.highlighted {
+  border-color: var(--color-left);
+  box-shadow: 0 0 24px rgba(123, 196, 214, 0.15);
+}
+
+.hemisphere-tag.right:hover, .hemisphere-tag.right.highlighted {
+  border-color: var(--color-right);
+  box-shadow: 0 0 24px rgba(216, 194, 157, 0.15);
+}
+
+.hemi-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hemisphere-tag.left .hemi-title {
+  color: var(--color-left);
+}
+
+.hemisphere-tag.right .hemi-title {
+  color: var(--color-right);
+}
+
+.hemi-desc {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-main);
+  font-weight: 300;
+}
+
+.hemi-skills {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--text-subtle);
+  margin-top: 4px;
+}
+
+/* Bottom Metric & Diagnostics HUD */
+.proto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.proto-metrics {
+  display: flex;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(10, 10, 13, 0.6);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.metric-item span {
+  color: var(--text-main);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.proto-footnote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-subtle);
+  text-align: right;
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+.proto-footnote a {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--text-subtle);
+}
+
+.proto-footnote a:hover {
+  color: var(--text-main);
+}
+
+/* Region Selector Pills */
+.proto-regions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-width: 600px;
+}
+
+.region-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.region-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-active);
+}
+
+.region-btn.active {
+  color: #fff;
+  border-color: var(--color-left);
+  background: rgba(123, 196, 214, 0.15);
+}
+
+/* Interactive Cursor / Tooltip */
+#token-inspector {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  transform: translate(-50%, -130%);
+  background: rgba(10, 10, 13, 0.9);
+  border: 1px solid var(--border-active);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-right);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+#token-inspector.visible {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .proto-hemispheres {
+    display: none;
+  }
+  .proto-regions {
+    display: none;
+  }
+  .proto-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
