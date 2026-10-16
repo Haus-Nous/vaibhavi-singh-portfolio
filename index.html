@@ -24,6 +24,7 @@
       </a>
       <div class="nav-links">
         <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#experience" class="nav-link">EXPERIENCE</a>
         <a href="#research" class="nav-link">RESEARCH</a>
         <a href="#skills" class="nav-link">SYSTEMS</a>
         <a href="#contact" class="nav-link">CONTACT</a>
@@ -35,6 +36,7 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="#projects" class="nav-link">PROJECTS</a>
+      <a href="#experience" class="nav-link">EXPERIENCE</a>
       <a href="#research" class="nav-link">RESEARCH</a>
       <a href="#skills" class="nav-link">SYSTEMS</a>
       <a href="#contact" class="nav-link">CONTACT</a>
@@ -47,17 +49,15 @@
       <div class="hero-label">AI SYSTEMS BUILDER &amp; RESEARCHER</div>
       <h1 class="hero-title">
         <span class="hero-line">Building</span>
-        <span class="hero-line accent">Reasoning-Driven</span>
-        <span class="hero-line">AI Platforms<span class="cursor">_</span></span>
+        <span class="hero-line accent">Production AI Systems &amp;</span>
+        <span class="hero-line">Full-Stack Platforms<span class="cursor">_</span></span>
       </h1>
       <p class="hero-desc">
-        I specialize in Retrieval-Augmented Generation (RAG) and multi-agent orchestration. 
-        My focus is on transparent AI reasoning, scalable backend architecture, and transforming 
-        unstructured inputs into structured, strategic outputs.
+        Specializing in Retrieval-Augmented Generation (RAG), agent reliability, and full-stack software architecture—from model evaluation and benchmarking to the production systems that ship them.
       </p>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-num">07</span>
+          <span class="stat-num">10</span>
           <span class="stat-label">PROJECTS</span>
         </div>
         <div class="stat">
@@ -124,7 +124,7 @@
       <h2 class="section-title">THE ENGINEERING PORTFOLIO</h2>
     </div>
 
-    <!-- Featured: Hitman -->
+    <!-- Featured 1: Hitman -->
     <div class="project-featured" id="project-hitman">
       <div class="project-featured-badge">FEATURED · LIVE</div>
       <div class="project-featured-content">
@@ -132,21 +132,21 @@
           <h3 class="project-name">HITMAN</h3>
           <p class="project-type">Fantasy Cricket Platform (PWA)</p>
           <p class="project-desc">
-            Full-stack Progressive Web App for IPL 2026 fantasy cricket. Real-time live scores 
-            via CricketData.org, private leagues with invite codes, dynamic payouts, and 
-            WebSocket-powered ball-by-ball commentary. Deployed on Vercel with Neon.tech PostgreSQL.
+            Full-stack Progressive Web App for IPL fantasy cricket. Real-time live scores, 
+            private leagues with unique invite codes, relational persistence layer designed with 
+            PostgreSQL and Prisma ORM, and NextAuth session management. Deployed on Vercel.
           </p>
           <div class="project-tags">
             <span class="tag">Next.js</span>
             <span class="tag">TypeScript</span>
             <span class="tag">PostgreSQL</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">Vercel</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">NextAuth</span>
             <span class="tag">PWA</span>
           </div>
           <div class="project-links">
             <a href="https://hitman-drab.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+            <a href="https://github.com/Haus-Nous/Hitman" class="project-link" target="_blank">GITHUB REPO ↗</a>
           </div>
         </div>
         <div class="project-featured-visual">
@@ -159,12 +159,13 @@
             </div>
             <div class="terminal-body">
               <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">status</span></div>
-              <div class="terminal-line"><span class="t-output">IPL 2026 · MATCH LIVE</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --active</span></div>
-              <div class="terminal-line"><span class="t-output">Private leagues: 12 active</span></div>
-              <div class="terminal-line"><span class="t-output">Players online: 847</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --live</span></div>
-              <div class="terminal-line"><span class="t-output accent">Broadcasting real-time...</span></div>
+              <div class="terminal-line"><span class="t-output">PRISMA · POSTGRESQL · CONNECTED</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">sync --live</span></div>
+              <div class="terminal-line"><span class="t-output">Fixture sync active · NextAuth enabled</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --mode</span></div>
+              <div class="terminal-line"><span class="t-output">Private leagues &amp; invite-code routing ready</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --feed</span></div>
+              <div class="terminal-line"><span class="t-output accent">Ball-by-ball commentary ingest active</span></div>
               <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
             </div>
           </div>
@@ -172,29 +173,28 @@
       </div>
     </div>
 
-    <!-- Featured: goku.ai -->
-    <div class="project-featured" id="project-goku" style="margin-top: 24px;">
-      <div class="project-featured-badge">FEATURED · LIVE</div>
+    <!-- Featured 2: RecoveryOS -->
+    <div class="project-featured" id="project-recoveryos" style="margin-top: 24px;">
+      <div class="project-featured-badge">FEATURED · AI BUILDATHON</div>
       <div class="project-featured-content">
         <div class="project-featured-info">
-          <h3 class="project-name">GOKU.AI</h3>
-          <p class="project-type">AI Strategy Execution Platform</p>
+          <h3 class="project-name">RecoveryOS</h3>
+          <p class="project-type">Payment Reliability &amp; Revenue Recovery Control Plane</p>
           <p class="project-desc">
-            Full-stack AI strategy execution platform for building custom, industry-specific 
-            AI tools. Features an interactive Console for natural language problem definition, 
-            modular capability engines (Strategy Execution, Process Automation, NL-to-SQL Analytics, 
-            Risk & Governance), and a Framework Repository with AI-enhanced consulting frameworks.
+            Autonomous payment failure recovery control plane built for the Razorpay AI Buildathon. 
+            Enforces a non-negotiable architectural invariant: AI proposes, policy authorizes, infrastructure executes. 
+            Features anomaly classification, root-cause analysis, and dynamic policy evaluation.
           </p>
           <div class="project-tags">
-            <span class="tag">Next.js</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Vercel</span>
-            <span class="tag">Glassmorphism</span>
+            <span class="tag">Python</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">AI Agents</span>
           </div>
           <div class="project-links">
-            <a href="https://haus-nous.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous" class="project-link" target="_blank">GITHUB ↗</a>
+            <a href="https://github.com/Haus-Nous/RecoveryOS" class="project-link" target="_blank">GITHUB REPO ↗</a>
           </div>
         </div>
         <div class="project-featured-visual">
@@ -203,15 +203,62 @@
               <span class="terminal-dot red"></span>
               <span class="terminal-dot yellow"></span>
               <span class="terminal-dot green"></span>
-              <span class="terminal-title">goku.ai — console</span>
+              <span class="terminal-title">recoveryos — control-plane</span>
             </div>
             <div class="terminal-body">
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">describe --challenge</span></div>
-              <div class="terminal-line"><span class="t-output">Analyzing market dynamics...</span></div>
-              <div class="terminal-line"><span class="t-output">Building financial models...</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">pilot --deploy</span></div>
-              <div class="terminal-line"><span class="t-output">Pilot Duration: 14d · Accuracy: 97%</span></div>
-              <div class="terminal-line"><span class="t-output accent">Strategy ready for execution</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">invariant --check</span></div>
+              <div class="terminal-line"><span class="t-output accent">AI PROPOSES · POLICY AUTHORIZES · INFRASTRUCTURE EXECUTES</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">anomaly --detect</span></div>
+              <div class="terminal-line"><span class="t-output">Root cause: Downstream gateway timeout spike</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">policy --evaluate</span></div>
+              <div class="terminal-line"><span class="t-output">Authorized: Idempotent adaptive retry path</span></div>
+              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured 3: Misfire -->
+    <div class="project-featured" id="project-misfire" style="margin-top: 24px;">
+      <div class="project-featured-badge">FEATURED · LIVE</div>
+      <div class="project-featured-content">
+        <div class="project-featured-info">
+          <h3 class="project-name">Misfire</h3>
+          <p class="project-type">Intelligent EdTech Diagnostic Engine</p>
+          <p class="project-desc">
+            Cognitive diagnostic engine that identifies the specific misconception behind wrong student answers 
+            instead of treating mistakes as binary failures. Generates targeted step-by-step remediation tailored 
+            to student reasoning patterns. Deployed on Vercel with Next.js.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">LLM Diagnostics</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://misfire-eta.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous/misfire" class="project-link" target="_blank">GITHUB REPO ↗</a>
+          </div>
+        </div>
+        <div class="project-featured-visual">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">misfire — diagnostic-engine</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">diagnose --attempt</span></div>
+              <div class="terminal-line"><span class="t-output">Evaluating student reasoning path...</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">misconception --identify</span></div>
+              <div class="terminal-line"><span class="t-output">Classified: Sign inversion during term distribution</span></div>
+              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">remediation --dispatch</span></div>
+              <div class="terminal-line"><span class="t-output accent">Targeted concept remediation generated</span></div>
               <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
             </div>
           </div>
@@ -222,118 +269,245 @@
     <!-- Project Grid -->
     <div class="project-grid">
 
+      <!-- 01: Enterprise RAG Architecture -->
       <article class="project-card" id="project-rag">
         <div class="project-card-header">
           <span class="project-number">01</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Production RAG Application</h3>
-        <p class="project-type">Domain-Specific "Ask My Docs" System</p>
+        <h3 class="project-name">Enterprise RAG Architecture</h3>
+        <p class="project-type">Production-Ready Hybrid Retrieval &amp; Evaluation System</p>
         <ul class="project-details">
-          <li>Hybrid search: BM25 + Vector (ChromaDB/Weaviate)</li>
-          <li>Cross-Encoder Re-ranking for precision</li>
-          <li>Strict citation enforcement — no hallucination</li>
-          <li>CI-gated evaluation with Ragas</li>
+          <li>Hybrid retrieval combining sparse lexical ranking (BM25) with dense vector embeddings</li>
+          <li>Cross-encoder re-ranking (ms-marco-MiniLM-L-6-v2) for noise elimination</li>
+          <li>Strict citation enforcement and source verification to prevent hallucinations</li>
+          <li>Automated quality evaluation and regression checks with Ragas and HF datasets</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">Langchain</span>
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">BM25</span>
           <span class="tag">ChromaDB</span>
-          <span class="tag">Weaviate</span>
+          <span class="tag">Cross-Encoder</span>
           <span class="tag">Ragas</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/Enterprise_RAG_Architecture" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-slm">
+      <!-- 02: RAGOps -->
+      <article class="project-card" id="project-ragops">
         <div class="project-card-header">
           <span class="project-number">02</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Local SLM App with Ollama</h3>
-        <p class="project-type">Offline LLM Inference Application</p>
+        <h3 class="project-name">RAGOps</h3>
+        <p class="project-type">LLMOps Observability, Profiling &amp; Regression Gating</p>
         <ul class="project-details">
-          <li>Ollama-powered 3–7B param local inference</li>
-          <li>Pydantic-validated JSON output + retry logic</li>
-          <li>Benchmarking: tok/s, TTFT, temperature variance</li>
-          <li>Privacy-first, zero external API calls</li>
+          <li>Decorator-based latency profiling across retrieval, re-ranking, and generation</li>
+          <li>Latency distribution analysis (p50/p95) and token utilization tracking via SQLite</li>
+          <li>Interactive Streamlit and Plotly dashboard visualizing execution traces</li>
+          <li>CI/CD regression gating asserting quality thresholds on evaluation datasets</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">Ollama</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Pydantic</span>
-          <span class="tag">Llama 3.2</span>
+          <span class="tag">Python</span>
+          <span class="tag">LangFuse</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">LLMOps</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/RAGOps" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-monitoring">
+      <!-- 03: LocalLLM Lab -->
+      <article class="project-card" id="project-localllm">
         <div class="project-card-header">
           <span class="project-number">03</span>
           <span class="project-status">COMPLETE</span>
         </div>
-        <h3 class="project-name">Monitoring &amp; Observability</h3>
-        <p class="project-type">LLMOps Production Pipeline Tracking</p>
+        <h3 class="project-name">LocalLLM Lab</h3>
+        <p class="project-type">Offline SLM Inference &amp; Hardware Benchmarking Harness</p>
         <ul class="project-details">
-          <li>Full pipeline tracing via LangFuse/LangSmith</li>
-          <li>p50/p95 latency, cost-per-request metrics</li>
-          <li>Automated regression gating in CI</li>
-          <li>Chunk retrieval + re-ranker audit trails</li>
+          <li>Offline 3–7B parameter model orchestration via Ollama (Llama 3.2, Phi-3, Qwen)</li>
+          <li>Strict Pydantic v2 schema validation with automated query retry and correction loops</li>
+          <li>Benchmarking harness evaluating memory utilization (psutil), TTFT, and tok/s throughput</li>
+          <li>Privacy-first local execution with zero external network dependencies</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">LangFuse</span>
-          <span class="tag">LangSmith</span>
-          <span class="tag">BrainTrust</span>
-          <span class="tag">CI/CD</span>
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">Pydantic</span>
+          <span class="tag">Llama 3.2</span>
+          <span class="tag">Benchmarking</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/LocalLLM-Lab" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-finetune">
+      <!-- 04: Bhoomi-Setu -->
+      <article class="project-card" id="project-bhoomi">
         <div class="project-card-header">
           <span class="project-number">04</span>
-          <span class="project-status">COMPLETE</span>
+          <span class="project-status">LIVE DEMO</span>
         </div>
-        <h3 class="project-name">Fine-Tuning: LoRA &amp; DPO</h3>
-        <p class="project-type">Task-Specific Model Optimization</p>
+        <h3 class="project-name">Bhoomi-Setu</h3>
+        <p class="project-type">Land Record Intelligence &amp; Verification Assistant</p>
         <ul class="project-details">
-          <li>SFT via QLoRA for structured JSON extraction</li>
-          <li>DPO training on positive vs. negative outputs</li>
-          <li>Measurable JSON validity rate improvement</li>
-          <li>Before/after exact match benchmarks</li>
+          <li>Transforms fragmented survey records into traceable evidence and deterministic verification</li>
+          <li>Three-way area reconciliation cross-referencing maps, mutations, and registry data</li>
+          <li>Synthetic-first parcel intelligence designed for pre-survey readiness exploration</li>
+          <li>Responsive Next.js web application deployed on Vercel</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">QLoRA</span>
-          <span class="tag">HuggingFace</span>
-          <span class="tag">Axolotl</span>
-          <span class="tag">DPO</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">React</span>
+          <span class="tag">Parcel Intelligence</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="project-links">
+          <a href="https://bhoomi-setu-xi.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+          <a href="https://github.com/Haus-Nous/Bhoomi-Setu" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
-      <article class="project-card" id="project-voice">
+      <!-- 05: Momentum OS -->
+      <article class="project-card" id="project-momentum">
         <div class="project-card-header">
           <span class="project-number">05</span>
-          <span class="project-status">COMPLETE</span>
+          <span class="project-status">LIVE DEMO</span>
         </div>
-        <h3 class="project-name">Real-Time Voice Pipeline</h3>
-        <p class="project-type">Streaming Multimodal Conversational Agent</p>
+        <h3 class="project-name">Momentum OS</h3>
+        <p class="project-type">Personal Productivity Operating System</p>
         <ul class="project-details">
-          <li>WebSocket: ASR → LLM → TTS streaming</li>
-          <li>Deepgram/Whisper + ElevenLabs/Cartesia</li>
-          <li>Component latency budget optimization</li>
-          <li>Graceful degradation + fallback caching</li>
+          <li>Real-time 0–100 Life Score SVG gauge evaluating habit streaks, completion, and velocity</li>
+          <li>6-view task manager (Kanban, Gantt, Timeline, Calendar, Matrix, Data Table)</li>
+          <li>Habit lifecycle engine with 365-day contribution heatmaps and milestones</li>
+          <li>Built with Next.js 15 App Router, Zustand state management, and Web Audio API</li>
         </ul>
         <div class="project-tags">
-          <span class="tag">WebSockets</span>
-          <span class="tag">Deepgram</span>
-          <span class="tag">ElevenLabs</span>
-          <span class="tag">Whisper</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Zustand</span>
+          <span class="tag">Framer Motion</span>
+          <span class="tag">Recharts</span>
+        </div>
+        <div class="project-links">
+          <a href="https://momentum-os-olive.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
+          <a href="https://github.com/Haus-Nous/momentum_os" class="project-link" target="_blank">GITHUB REPO ↗</a>
+        </div>
+      </article>
+
+      <!-- 06: The White Knight -->
+      <article class="project-card" id="project-whiteknight">
+        <div class="project-card-header">
+          <span class="project-number">06</span>
+          <span class="project-status">LIVE DEMO</span>
+        </div>
+        <h3 class="project-name">The White Knight</h3>
+        <p class="project-type">Autonomous Job Application Command Center</p>
+        <ul class="project-details">
+          <li>Analyzes job descriptions to score candidate resume alignment against ATS keywords</li>
+          <li>Automated profile ingestion and document drafting to reduce manual application overhead</li>
+          <li>Application pipeline tracking across multiple candidate stages and statuses</li>
+          <li>Full-stack web application built with TypeScript and Next.js</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">ATS Scoring</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <div class="project-links">
+          <a href="https://the-white-knight-theta.vercel.app/" class="project-link" target="_blank">LIVE APP (LOGIN REQUIRED) ↗</a>
+          <a href="https://github.com/Haus-Nous/-The_White_knight" class="project-link" target="_blank">GITHUB REPO ↗</a>
+        </div>
+      </article>
+
+      <!-- 07: NeuroProx -->
+      <article class="project-card" id="project-neuroprox">
+        <div class="project-card-header">
+          <span class="project-number">07</span>
+          <span class="project-status">HACKATHON TEAM PROJECT</span>
+        </div>
+        <h3 class="project-name">NeuroProx</h3>
+        <p class="project-type">EMG Gesture Classification &amp; Offline Voice Control</p>
+        <ul class="project-details">
+          <li>Collaborative hackathon project for bionic prosthetic arm control</li>
+          <li>Extracted time-domain signal features (RMS, MAV, zero-crossings, variance) using NumPy and SciPy</li>
+          <li>Trained leakage-safe gesture classifiers using scikit-learn (RandomForest, SVM) with Stratified K-Fold validation</li>
+          <li>Built offline voice control integration using Vosk via an immutable command bus</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Vosk</span>
+          <span class="tag">EMG Sensors</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Haus-Nous/Neuroprox" class="project-link" target="_blank">GITHUB REPO ↗</a>
         </div>
       </article>
 
     </div>
   </section>
 
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <span class="section-index">03</span>
+      <h2 class="section-title">EXPERIENCE</h2>
+    </div>
+    <div class="experience-grid">
+      <article class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="experience-role">Founding AI/ML Engineer</h3>
+            <p class="experience-company">DevSora · Jaipur, India</p>
+          </div>
+          <span class="experience-period">SEP 2026 – PRESENT</span>
+        </div>
+      </article>
+
+      <article class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="experience-role">Project Director</h3>
+            <p class="experience-company">Enactus MUJ · Jaipur, India</p>
+            <p class="experience-subrole">Previously: Project Joint Head (Jul 2025 – Jun 2026)</p>
+          </div>
+          <span class="experience-period">JUN 2026 – PRESENT</span>
+        </div>
+      </article>
+
+      <article class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="experience-role">Technical Joint Head</h3>
+            <p class="experience-company">180 Degrees Consulting · Jaipur, India</p>
+          </div>
+          <span class="experience-period">SEP 2025 – JUL 2026</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- Research -->
   <section id="research" class="section">
     <div class="section-header">
-      <span class="section-index">03</span>
+      <span class="section-index">04</span>
       <h2 class="section-title">ONGOING RESEARCH</h2>
     </div>
     <div class="research-grid">
@@ -350,7 +524,7 @@
         <div class="research-content">
           <h3>Wireless Channel Prediction with AI</h3>
           <p class="research-subtitle">Deep Learning for Communication Networks</p>
-          <p>Replacing traditional mathematical predictors with sequence-to-sequence deep learning architectures (LSTM/GRU encoder-decoders) mapped directly to hardware SDR metrics (SNR/RSSI). Optimizing transmission parameters asynchronously to lower network latency.</p>
+          <p>Sequence-to-sequence deep learning architectures (LSTM/GRU encoder-decoders) for time-series wireless channel forecasting mapped directly to hardware SDR metrics (SNR/RSSI). Optimizing transmission parameters asynchronously to lower network latency.</p>
         </div>
       </article>
     </div>
@@ -359,29 +533,37 @@
   <!-- Skills / Systems -->
   <section id="skills" class="section">
     <div class="section-header">
-      <span class="section-index">04</span>
+      <span class="section-index">05</span>
       <h2 class="section-title">SYSTEMS &amp; TOOLS</h2>
     </div>
     <div class="skills-matrix">
       <div class="skill-row">
         <span class="skill-category">LANGUAGES</span>
-        <span class="skill-items">Python · JavaScript · TypeScript · SQL</span>
+        <span class="skill-items">Python · TypeScript · JavaScript · SQL</span>
       </div>
       <div class="skill-row">
         <span class="skill-category">AI SYSTEMS</span>
-        <span class="skill-items">LLMs · RAG · Multi-Agent · Prompt Engineering · SLMs</span>
+        <span class="skill-items">RAG (Hybrid BM25 + Vector) · Multi-Agent Orchestration · Local SLM Inference · LLMOps · Prompt Engineering</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">DATA &amp; ML</span>
+        <span class="skill-items">pandas · NumPy · scikit-learn · SciPy · Plotly · Jupyter Notebooks · Hugging Face Datasets</span>
       </div>
       <div class="skill-row">
         <span class="skill-category">FRAMEWORKS</span>
-        <span class="skill-items">Next.js · FastAPI · React · Langchain · LangGraph · TRL · WebSockets</span>
+        <span class="skill-items">Next.js · FastAPI · React · LangChain · LangGraph · Tailwind CSS · WebSockets</span>
       </div>
       <div class="skill-row">
         <span class="skill-category">DATABASES</span>
-        <span class="skill-items">PostgreSQL · Neon · pgvector · ChromaDB · Weaviate · Redis</span>
+        <span class="skill-items">PostgreSQL · Prisma · ChromaDB · FAISS · SQLite · Redis</span>
       </div>
       <div class="skill-row">
         <span class="skill-category">TOOLING</span>
-        <span class="skill-items">Docker · Vercel · Ollama · LangFuse · Ragas · QLoRA · Axolotl</span>
+        <span class="skill-items">Docker · Vercel · Ollama · LangFuse · Ragas · Git · Linux</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-category">CERTIFICATIONS</span>
+        <span class="skill-items">Vector Databases for RAG · Build RAG Applications (IBM)</span>
       </div>
     </div>
   </section>
@@ -389,7 +571,7 @@
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="section-header">
-      <span class="section-index">05</span>
+      <span class="section-index">06</span>
       <h2 class="section-title">CONNECT</h2>
     </div>
     <div class="contact-grid">
@@ -409,13 +591,13 @@
         <span class="contact-label">HITMAN APP</span>
         <span class="contact-value">hitman-drab.vercel.app ↗</span>
       </a>
-      <a href="https://haus-nous.vercel.app/" class="contact-card" target="_blank" id="contact-goku">
-        <span class="contact-label">GOKU.AI</span>
-        <span class="contact-value">haus-nous.vercel.app ↗</span>
+      <a href="https://misfire-eta.vercel.app/" class="contact-card" target="_blank" id="contact-misfire">
+        <span class="contact-label">MISFIRE APP</span>
+        <span class="contact-value">misfire-eta.vercel.app ↗</span>
       </a>
     </div>
     <div class="contact-footer">
-      <p>Jaipur, India · B.Tech CS @ Manipal University Jaipur · 2024–Present</p>
+      <p>Jaipur, India · B.Tech CS, Manipal University Jaipur · 2024–2028 (expected) · Dean's List</p>
     </div>
   </section>
 
