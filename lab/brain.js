@@ -143,8 +143,9 @@
     // Setup Interactivity
     setupEvents(container);
 
-    // Initial UI Sync
+    // Initial UI Sync & Build Stamp
     updateUIElements();
+    loadBuildStamp();
 
     // Start Clock & Assembly
     state.assemblyStartTime = performance.now();
@@ -1288,6 +1289,22 @@
       return json.tokens || json;
     } catch (e) {
       return ['retrieve()', 'generate()', 'embed()'];
+    }
+  }
+
+  // Helper: Build Stamp Loader
+  async function loadBuildStamp() {
+    try {
+      const res = await fetch('/lab/build.json?t=' + Date.now());
+      if (res.ok) {
+        const data = await res.json();
+        const stampElem = document.getElementById('metric-build-stamp');
+        if (stampElem && data.stamp) {
+          stampElem.textContent = data.stamp;
+        }
+      }
+    } catch (e) {
+      // Keep initial fallback stamp
     }
   }
 
