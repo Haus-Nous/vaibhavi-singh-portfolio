@@ -1,0 +1,17 @@
+3D Brain Model License & Attribution Information
+==================================================
+
+Model Title: Detailed Human Brain Model (3D)
+Entry ID: 3DPX-021161
+Source Repository: NIH 3D (National Institutes of Health)
+Source URL: https://3d.nih.gov/entries/3DPX-021161
+Produced by: Schmidt's
+Methodology: Hyes, A.G. (2018) Production of 3D Printed Scale Models from Microscope Volume Datasets, 1(1):002, © Hyes, A.G. 2017.
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+License Deed: https://creativecommons.org/licenses/by/4.0/
+Legal Code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Modifications:
+- Decimated triangle count targeting web point-cloud sampling using gltfpack mesh simplification.
+- Unquantized binary glTF (.glb) export optimized for real-time WebGL rendering and particle surface sampling.
