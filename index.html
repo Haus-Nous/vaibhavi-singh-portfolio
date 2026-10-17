@@ -3,612 +3,1311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaibhavi Singh — AI Systems Builder</title>
-  <meta name="description" content="AI-native systems builder specializing in RAG, multi-agent orchestration, and production LLM pipelines. Portfolio of Vaibhavi Singh.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <title>Vaibhavi Singh — A Brain Built From Code · AI Systems Builder</title>
+  <meta name="description" content="Founding AI/ML Engineer @ DevSora & CS student at Manipal University Jaipur. Engineering production RAG pipelines, reliable agent orchestration, and full-stack software platforms that ship.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+
+  <!-- Typography: Inter Tight (Grotesk), Instrument Serif (Editorial Italic Accent), JetBrains Mono (Tech/Micro) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Scan-line overlay -->
+<body class="theme-brain">
+
+  <!-- Subtle CRT Scanlines -->
   <div class="scanlines" aria-hidden="true"></div>
 
-  <!-- Navigation -->
-  <nav id="main-nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-dot"></span>
-        <span class="logo-text">VAIBHAVI SINGH</span>
+  <!-- Minimal Fixed HUD Navigation -->
+  <nav id="main-nav" aria-label="Main Navigation">
+    <div class="nav-bar">
+      <!-- Identity & Status -->
+      <a href="#hero" class="nav-brand" aria-label="Vaibhavi Singh Home">
+        <span class="pulse-indicator" aria-hidden="true"></span>
+        <span class="brand-name">VAIBHAVI SINGH</span>
+        <span class="brand-role">· DEVSORA</span>
       </a>
-      <div class="nav-links">
-        <a href="#projects" class="nav-link">PROJECTS</a>
-        <a href="#experience" class="nav-link">EXPERIENCE</a>
-        <a href="#research" class="nav-link">RESEARCH</a>
-        <a href="#skills" class="nav-link">SYSTEMS</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
+
+      <!-- Quick Section Jump Links -->
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link active">01 BRAIN</a>
+        <a href="#code-stream" class="nav-link">02 CODE</a>
+        <a href="#cortical-systems" class="nav-link">03 SYSTEMS</a>
+        <a href="#process-hub" class="nav-link">04 PROCESS</a>
+        <a href="#experience" class="nav-link">05 ADAPTIVE</a>
+        <a href="#projects" class="nav-link">06 PROJECTS</a>
+        <a href="#connect" class="nav-link">07 CONNECT</a>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- Controls & Recruiter Actions -->
+      <div class="nav-actions">
+        <!-- Calm Mode Toggle -->
+        <button id="btn-calm" class="btn-hud" type="button" title="Toggle Calm Mode (stops particle drift)">
+          <span class="hud-dot" aria-hidden="true"></span>
+          <span class="calm-label">CALM (OFF)</span>
+        </button>
+
+        <!-- Direct Resume Quick Links -->
+        <a href="/Vaibhavi_Singh_Resume.html" class="btn-hud resume-btn" target="_blank" rel="noopener">
+          <span>RESUME ↗</span>
+        </a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#projects" class="nav-link">PROJECTS</a>
-      <a href="#experience" class="nav-link">EXPERIENCE</a>
-      <a href="#research" class="nav-link">RESEARCH</a>
-      <a href="#skills" class="nav-link">SYSTEMS</a>
-      <a href="#contact" class="nav-link">CONTACT</a>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <div class="mobile-header">
+          <span class="mono-label">RECRUITER 30-SECOND DIRECTORY</span>
+          <button class="mobile-close" id="mobile-close" type="button" aria-label="Close menu">✕</button>
+        </div>
+        <div class="mobile-links">
+          <a href="#hero" class="mob-link">01 · A BRAIN BUILT FROM CODE</a>
+          <a href="#code-stream" class="mob-link">02 · THE CODE SUBSTRATE</a>
+          <a href="#cortical-systems" class="mob-link">03 · CORTICAL SYSTEMS &amp; SKILLS</a>
+          <a href="#process-hub" class="mob-link">04 · NEURAL PROCESS HUB</a>
+          <a href="#experience" class="mob-link">05 · ADAPTIVE EXPERIENCE</a>
+          <a href="#projects" class="mob-link">06 · 10 PRODUCTION PROJECTS</a>
+          <a href="#research" class="mob-link">07 · ONGOING RESEARCH</a>
+          <a href="#connect" class="mob-link">08 · CONTACT &amp; CREDENTIALS</a>
+        </div>
+        <div class="mobile-cta-group">
+          <a href="mailto:vaibhavisingh6655@gmail.com" class="btn-solid">EMAIL VAIBHAVI</a>
+          <a href="/Vaibhavi_Singh_Resume.html" class="btn-outline" target="_blank">VIEW RESUME (HTML) ↗</a>
+          <a href="/Vaibhavi_Singh_Resume.docx" class="btn-outline" download>DOWNLOAD RESUME (DOCX) ↓</a>
+        </div>
+        <div class="mobile-footer">
+          <span>B.Tech CS @ Manipal University Jaipur · Dean's List</span>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header id="hero">
-    <div class="hero-grid">
-      <div class="hero-label">AI SYSTEMS BUILDER &amp; RESEARCHER</div>
-      <h1 class="hero-title">
-        <span class="hero-line">Building</span>
-        <span class="hero-line accent">Production AI Systems &amp;</span>
-        <span class="hero-line">Full-Stack Platforms<span class="cursor">_</span></span>
-      </h1>
-      <p class="hero-desc">
-        Specializing in Retrieval-Augmented Generation (RAG), agent reliability, and full-stack software architecture—from model evaluation and benchmarking to the production systems that ship them.
-      </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">10</span>
-          <span class="stat-label">PROJECTS</span>
+  <!-- Interactive 3D Cursor Token Tooltip -->
+  <div id="token-inspector" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       01 · HERO: THE NEXT COMPUTER IS HUMAN
+       ============================================================ -->
+  <header id="hero" class="hero-section">
+    <div class="hero-container">
+      
+      <!-- Left Content / Typographic Column -->
+      <div class="hero-copy-column">
+        <div class="badge-row">
+          <span class="mono-badge">AI SYSTEMS &amp; RESEARCH / 01</span>
+          <span class="mono-badge live-badge">60 FPS WEBGL</span>
         </div>
-        <div class="stat">
-          <span class="stat-num">02</span>
-          <span class="stat-label">RESEARCH</span>
+
+        <h1 class="hero-display-title">
+          <span class="h-line">THE NEXT</span>
+          <span class="h-line">COMPUTER</span>
+          <span class="h-line">IS <em class="serif-accent">HUMAN.</em></span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Building Production AI Systems &amp; Full-Stack Platforms
+        </p>
+
+        <p class="hero-lede">
+          Founding AI/ML Engineer @ DevSora and CS student at Manipal University Jaipur. Engineering production RAG pipelines, reliable agent orchestration, and full-stack software platforms that ship.
+        </p>
+
+        <!-- Live Telemetry Matrix -->
+        <div class="telemetry-bar">
+          <div class="tele-item">
+            <span class="tele-val">10</span>
+            <span class="tele-key">PROJECTS</span>
+          </div>
+          <div class="tele-item">
+            <span class="tele-val">02</span>
+            <span class="tele-key">RESEARCH</span>
+          </div>
+          <div class="tele-item">
+            <span class="tele-val">33.8K</span>
+            <span class="tele-key">CODE PARTICLES</span>
+          </div>
+          <div class="tele-item">
+            <span class="tele-val">100%</span>
+            <span class="tele-key">DATA GROUNDED</span>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">CURIOSITY</span>
+
+        <!-- Hero Action Links -->
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn-solid">
+            <span>VIEW 10 PROJECTS</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#process-hub" class="btn-outline">
+            <span>THE PROCESS HUB</span>
+          </a>
+          <a href="/Vaibhavi_Singh_Resume.html" class="btn-outline" target="_blank" rel="noopener">
+            <span>RESUME (HTML) ↗</span>
+          </a>
         </div>
       </div>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
-        <a href="/Vaibhavi_Singh_Resume.html" class="btn btn-ghost" target="_blank">RESUME (HTML) ↗</a>
-        <a href="/Vaibhavi_Singh_Resume.docx" class="btn btn-ghost" download>RESUME (DOCX) ↓</a>
+
+      <!-- Right 3D Stage / Code-Built Brain Stage -->
+      <div class="hero-stage-column">
+        <div class="stage-frame corners">
+          <!-- WebGL Canvas Container -->
+          <div id="brain-canvas-container" class="canvas-mount" aria-label="3D Interactive Code-Built Brain Model"></div>
+
+          <!-- Anatomical View Switchers HUD -->
+          <div class="stage-hud-top">
+            <span class="hud-tag">3D ANATOMICAL ENGINE</span>
+            <div class="view-switchers">
+              <button class="view-btn" data-view="threequarter" type="button">3/4 PROFILE</button>
+              <button class="view-btn active" data-view="side" type="button">SIDE</button>
+              <button class="view-btn" data-view="top" type="button">TOP</button>
+            </div>
+          </div>
+
+          <!-- Bottom Telemetry HUD -->
+          <div class="stage-hud-bottom">
+            <div class="stage-live-metrics">
+              <span class="stage-metric">SURFACE: <b id="hud-particles">33,800</b></span>
+              <span class="stage-metric">TOKENS: <b id="hud-tokens">1,800</b></span>
+              <span class="stage-metric">FPS: <b id="hud-fps">60</b></span>
+            </div>
+            <button id="btn-recompile" class="btn-ghost-recompile" type="button" title="Replay compilation sequence">
+              <span>RECOMPILE ↺</span>
+            </button>
+          </div>
+        </div>
       </div>
+
     </div>
-    <div class="hero-decoration" aria-hidden="true">
-      <div class="tech-circle">
-        <svg viewBox="0 0 200 200" class="circle-svg">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
-          <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <circle cx="100" cy="100" r="4" fill="#FF0000"/>
-        </svg>
-      </div>
-    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a href="#code-stream" class="scroll-cue" aria-label="Scroll to Section 02">
+      <span class="scroll-text">DISCOVER THE SUBSTRATE</span>
+      <span class="scroll-chevron" aria-hidden="true">↓</span>
+    </a>
   </header>
 
-  <!-- Focus Areas -->
-  <section id="focus" class="section">
-    <div class="section-header">
-      <span class="section-index">01</span>
-      <h2 class="section-title">CORE FOCUS AREAS</h2>
-    </div>
-    <div class="focus-grid">
-      <div class="focus-card">
-        <div class="focus-icon">⬡</div>
-        <h3>Enterprise RAG</h3>
-        <p>Hybrid retrieval pipelines with cross-encoder re-ranking and citation enforcement</p>
+
+  <!-- ============================================================
+       02 · THE SUBSTRATE: INTELLIGENCE IS WRITTEN IN CODE
+       ============================================================ -->
+  <section id="code-stream" class="editorial-section">
+    <div class="wrap">
+      
+      <div class="editorial-header">
+        <span class="mono-badge">02 / THE SUBSTRATE</span>
+        <h2 class="editorial-display-title">
+          <span>INTELLIGENCE</span>
+          <span>IS WRITTEN</span>
+          <span>IN <em class="serif-accent">CODE.</em></span>
+        </h2>
+        <p class="editorial-subtext">
+          The code is not decoration. The code is the biological fabric from which neural intelligence emerges.
+        </p>
       </div>
-      <div class="focus-card">
-        <div class="focus-icon">◈</div>
-        <h3>Local SLM Inference</h3>
-        <p>Privacy-first offline AI with Ollama, benchmarking, and structured output validation</p>
+
+      <!-- Three-Part Computational Law -->
+      <div class="triad-grid">
+        <div class="triad-card corners">
+          <span class="triad-num">01</span>
+          <h3 class="triad-title">SIGNALS BECOME INFORMATION</h3>
+          <p class="triad-desc">
+            Raw electrical telemetry, SDR SNR/RSSI distributions, and high-frequency EMG time-domain features are conditioned, filtered, and transformed into deterministic feature representations.
+          </p>
+          <div class="triad-code-snippet">
+            <code>scipy.signal · RMS · MAV · FFT · SNR</code>
+          </div>
+        </div>
+
+        <div class="triad-card corners">
+          <span class="triad-num">02</span>
+          <h3 class="triad-title">INFORMATION BECOMES INTENT</h3>
+          <p class="triad-desc">
+            Sparse lexical indices (BM25) and dense embeddings (ChromaDB) align with cross-encoders to eliminate noise, transforming unstructured user queries into grounded, verifiable semantic vectors.
+          </p>
+          <div class="triad-code-snippet">
+            <code>ms-marco-MiniLM-L-6-v2 · BM25 · RAG</code>
+          </div>
+        </div>
+
+        <div class="triad-card corners">
+          <span class="triad-num">03</span>
+          <h3 class="triad-title">INTENT BECOMES ACTION</h3>
+          <p class="triad-desc">
+            Deterministic state machines enforce non-negotiable architectural invariants: AI proposes, policy authorizes, and infrastructure executes without uncontrolled loops or catastrophic failure.
+          </p>
+          <div class="triad-code-snippet">
+            <code>LangGraph · Pydantic v2 · Prisma · Policy</code>
+          </div>
+        </div>
       </div>
-      <div class="focus-card">
-        <div class="focus-icon">◇</div>
-        <h3>Multi-Agent Orchestration</h3>
-        <p>LangGraph-powered autonomous agent systems with failure-aware recovery</p>
+
+      <!-- Spatial Code Stream Visualization Strip -->
+      <div class="stream-strip-wrapper corners">
+        <div class="stream-header">
+          <span class="stream-tag">REPRESENTATIVE REPOSITORY SUBSTRATE · 600 EXTRACTED SYNTAX TOKENS</span>
+          <span class="stream-status">STREAMING LIVE</span>
+        </div>
+        <div class="code-stream-marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>def check_source()</span>
+            <span class="tok-accent">BM25Okapi(corpus)</span>
+            <span>prisma.league.create()</span>
+            <span class="tok-blue">Ollama.generate(model="llama3.2")</span>
+            <span>ast.AsyncFunctionDef</span>
+            <span class="tok-gold">cross_encoder.predict(pairs)</span>
+            <span>invariant.assert_valid()</span>
+            <span class="tok-coral">scipy.signal.welch()</span>
+            <span>pydantic.BaseModel</span>
+            <span class="tok-accent">ragas.evaluate(dataset)</span>
+            <span>psutil.virtual_memory()</span>
+            <span class="tok-blue">Vosk.KaldiRecognizer()</span>
+            <span>zustand.createStore()</span>
+            <span class="tok-gold">FastAPI(lifespan=lifespan)</span>
+            <span>sqlite3.Row</span>
+            <span class="tok-coral">StratifiedKFold(n_splits=5)</span>
+          </div>
+          <div class="marquee-track" aria-hidden="true">
+            <span>def check_source()</span>
+            <span class="tok-accent">BM25Okapi(corpus)</span>
+            <span>prisma.league.create()</span>
+            <span class="tok-blue">Ollama.generate(model="llama3.2")</span>
+            <span>ast.AsyncFunctionDef</span>
+            <span class="tok-gold">cross_encoder.predict(pairs)</span>
+            <span>invariant.assert_valid()</span>
+            <span class="tok-coral">scipy.signal.welch()</span>
+            <span>pydantic.BaseModel</span>
+            <span class="tok-accent">ragas.evaluate(dataset)</span>
+            <span>psutil.virtual_memory()</span>
+            <span class="tok-blue">Vosk.KaldiRecognizer()</span>
+            <span>zustand.createStore()</span>
+            <span class="tok-gold">FastAPI(lifespan=lifespan)</span>
+            <span>sqlite3.Row</span>
+            <span class="tok-coral">StratifiedKFold(n_splits=5)</span>
+          </div>
+        </div>
       </div>
-      <div class="focus-card">
-        <div class="focus-icon">○</div>
-        <h3>Agent Reliability</h3>
-        <p>LLMOps observability, regression gating, and production monitoring layers</p>
-      </div>
+
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="section-header">
-      <span class="section-index">02</span>
-      <h2 class="section-title">THE ENGINEERING PORTFOLIO</h2>
-    </div>
 
-    <!-- Featured 1: Hitman -->
-    <div class="project-featured" id="project-hitman">
-      <div class="project-featured-badge">FEATURED · LIVE</div>
-      <div class="project-featured-content">
-        <div class="project-featured-info">
-          <h3 class="project-name">HITMAN</h3>
-          <p class="project-type">Fantasy Cricket Platform (PWA)</p>
-          <p class="project-desc">
-            Full-stack Progressive Web App for IPL fantasy cricket. Real-time live scores, 
-            private leagues with unique invite codes, relational persistence layer designed with 
-            PostgreSQL and Prisma ORM, and NextAuth session management. Deployed on Vercel.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Next.js</span>
+  <!-- ============================================================
+       03 · CORTICAL SYSTEMS: A BRAIN MADE OF SIGNALS
+       ============================================================ -->
+  <section id="cortical-systems" class="cortical-section">
+    <div class="wrap">
+
+      <div class="section-intro">
+        <span class="mono-badge">03 / CORTICAL SYSTEMS</span>
+        <h2 class="editorial-display-title">
+          <span>A BRAIN</span>
+          <span>MADE OF</span>
+          <span><em class="serif-accent">SIGNALS.</em></span>
+        </h2>
+        <p class="section-lede">
+          Explore the functional cortical lobes. Selecting a domain illuminates its neural pathway in the 3D model and inspects the production systems engineered within it.
+        </p>
+      </div>
+
+      <!-- Functional Lobe Grid -->
+      <div class="lobes-matrix">
+
+        <!-- Lobe 01: RAG & Retrieval -->
+        <article class="lobe-card corners" data-lobe="0">
+          <div class="lobe-top">
+            <span class="lobe-index">01</span>
+            <span class="lobe-hemi">LEFT HEMISPHERE · LOGIC</span>
+          </div>
+          <h3 class="lobe-title">RAG &amp; Retrieval</h3>
+          <p class="lobe-sub">Hybrid Semantic &amp; Lexical Search</p>
+          <ul class="lobe-bullets">
+            <li>Hybrid retrieval combining sparse BM25 lexical ranking with dense ChromaDB &amp; FAISS vectors</li>
+            <li>Cross-encoder re-ranking (<code>ms-marco-MiniLM-L-6-v2</code>) eliminating semantic noise</li>
+            <li>Strict citation enforcement and verified source attribution preventing hallucinations</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">BM25</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">Cross-Encoder</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">Python</span>
+          </div>
+        </article>
+
+        <!-- Lobe 02: Agent Reliability -->
+        <article class="lobe-card corners" data-lobe="1">
+          <div class="lobe-top">
+            <span class="lobe-index">02</span>
+            <span class="lobe-hemi">LEFT HEMISPHERE · CONTROL</span>
+          </div>
+          <h3 class="lobe-title">Agent Reliability</h3>
+          <p class="lobe-sub">Bounded Autonomy &amp; Failure Recovery</p>
+          <ul class="lobe-bullets">
+            <li>Enforcing deterministic invariant: <em>AI proposes, Policy authorizes, Infrastructure executes</em></li>
+            <li>Failure-Aware Agent Framework (FAAF) detecting tool misuse and infinite execution loops</li>
+            <li>Dynamic recovery policies, automated state rollbacks, and self-reflection loops</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">LangGraph</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Policy Engine</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FAAF</span>
+          </div>
+        </article>
+
+        <!-- Lobe 03: Full-Stack Platforms -->
+        <article class="lobe-card corners" data-lobe="2">
+          <div class="lobe-top">
+            <span class="lobe-index">03</span>
+            <span class="lobe-hemi">LEFT HEMISPHERE · ARCHITECTURE</span>
+          </div>
+          <h3 class="lobe-title">Full-Stack Platforms</h3>
+          <p class="lobe-sub">High-Scale Production Applications</p>
+          <ul class="lobe-bullets">
+            <li>Next.js 15 App Router, TypeScript, React, Tailwind CSS, and Zustand state systems</li>
+            <li>Relational database persistence architecture using PostgreSQL and Prisma ORM</li>
+            <li>Real-time WebSocket data ingest, PWA offline caching, and NextAuth session security</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">Next.js 15</span>
             <span class="tag">TypeScript</span>
             <span class="tag">PostgreSQL</span>
             <span class="tag">Prisma</span>
-            <span class="tag">NextAuth</span>
             <span class="tag">PWA</span>
           </div>
-          <div class="project-links">
-            <a href="https://hitman-drab.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous/Hitman" class="project-link" target="_blank">GITHUB REPO ↗</a>
-          </div>
-        </div>
-        <div class="project-featured-visual">
-          <div class="terminal-window">
-            <div class="terminal-bar">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot yellow"></span>
-              <span class="terminal-dot green"></span>
-              <span class="terminal-title">hitman — live</span>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">status</span></div>
-              <div class="terminal-line"><span class="t-output">PRISMA · POSTGRESQL · CONNECTED</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">sync --live</span></div>
-              <div class="terminal-line"><span class="t-output">Fixture sync active · NextAuth enabled</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">leagues --mode</span></div>
-              <div class="terminal-line"><span class="t-output">Private leagues &amp; invite-code routing ready</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">scores --feed</span></div>
-              <div class="terminal-line"><span class="t-output accent">Ball-by-ball commentary ingest active</span></div>
-              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </article>
 
-    <!-- Featured 2: RecoveryOS -->
-    <div class="project-featured" id="project-recoveryos" style="margin-top: 24px;">
-      <div class="project-featured-badge">FEATURED · AI BUILDATHON</div>
-      <div class="project-featured-content">
-        <div class="project-featured-info">
-          <h3 class="project-name">RecoveryOS</h3>
-          <p class="project-type">Payment Reliability &amp; Revenue Recovery Control Plane</p>
-          <p class="project-desc">
-            Autonomous payment failure recovery control plane built for the Razorpay AI Buildathon. 
-            Enforces a non-negotiable architectural invariant: AI proposes, policy authorizes, infrastructure executes. 
-            Features anomaly classification, root-cause analysis, and dynamic policy evaluation.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">FastAPI</span>
+        <!-- Lobe 04: Data & Machine Learning -->
+        <article class="lobe-card corners" data-lobe="3">
+          <div class="lobe-top">
+            <span class="lobe-index">04</span>
+            <span class="lobe-hemi">RIGHT HEMISPHERE · PATTERNS</span>
+          </div>
+          <h3 class="lobe-title">Data &amp; Machine Learning</h3>
+          <p class="lobe-sub">Signal Feature Extraction &amp; Inference</p>
+          <ul class="lobe-bullets">
+            <li>Time-domain biological signal feature extraction (RMS, MAV, zero-crossings, variance)</li>
+            <li>Leakage-safe gesture classifiers (RandomForest, SVM) with Stratified K-Fold validation</li>
+            <li>Offline acoustic voice intent processing via Vosk with immutable command bus routing</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">NumPy</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">pandas</span>
+            <span class="tag">Vosk</span>
+          </div>
+        </article>
+
+        <!-- Lobe 05: LLMOps & Evaluation -->
+        <article class="lobe-card corners" data-lobe="4">
+          <div class="lobe-top">
+            <span class="lobe-index">05</span>
+            <span class="lobe-hemi">RIGHT HEMISPHERE · EMPIRICAL</span>
+          </div>
+          <h3 class="lobe-title">LLMOps &amp; Evaluation</h3>
+          <p class="lobe-sub">Latency Profiling &amp; Quality Gating</p>
+          <ul class="lobe-bullets">
+            <li>Decorator-based latency profiling across retrieval, re-ranking, and token generation</li>
+            <li>Distribution tracking (p50/p95 latency) and token economics recorded in local SQLite</li>
+            <li>CI/CD regression gating asserting quality thresholds using Ragas &amp; Hugging Face datasets</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">LangFuse</span>
+            <span class="tag">Ragas</span>
             <span class="tag">SQLite</span>
             <span class="tag">Streamlit</span>
-            <span class="tag">AI Agents</span>
+            <span class="tag">Plotly</span>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/Haus-Nous/RecoveryOS" class="project-link" target="_blank">GITHUB REPO ↗</a>
-          </div>
-        </div>
-        <div class="project-featured-visual">
-          <div class="terminal-window">
-            <div class="terminal-bar">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot yellow"></span>
-              <span class="terminal-dot green"></span>
-              <span class="terminal-title">recoveryos — control-plane</span>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">invariant --check</span></div>
-              <div class="terminal-line"><span class="t-output accent">AI PROPOSES · POLICY AUTHORIZES · INFRASTRUCTURE EXECUTES</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">anomaly --detect</span></div>
-              <div class="terminal-line"><span class="t-output">Root cause: Downstream gateway timeout spike</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">policy --evaluate</span></div>
-              <div class="terminal-line"><span class="t-output">Authorized: Idempotent adaptive retry path</span></div>
-              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </article>
 
-    <!-- Featured 3: Misfire -->
-    <div class="project-featured" id="project-misfire" style="margin-top: 24px;">
-      <div class="project-featured-badge">FEATURED · LIVE</div>
-      <div class="project-featured-content">
-        <div class="project-featured-info">
-          <h3 class="project-name">Misfire</h3>
-          <p class="project-type">Intelligent EdTech Diagnostic Engine</p>
-          <p class="project-desc">
-            Cognitive diagnostic engine that identifies the specific misconception behind wrong student answers 
-            instead of treating mistakes as binary failures. Generates targeted step-by-step remediation tailored 
-            to student reasoning patterns. Deployed on Vercel with Next.js.
-          </p>
+        <!-- Lobe 06: Applied Research -->
+        <article class="lobe-card corners" data-lobe="5">
+          <div class="lobe-top">
+            <span class="lobe-index">06</span>
+            <span class="lobe-hemi">RIGHT HEMISPHERE · FRONTIER</span>
+          </div>
+          <h3 class="lobe-title">Applied Research</h3>
+          <p class="lobe-sub">Channel Prediction &amp; Agent Dynamics</p>
+          <ul class="lobe-bullets">
+            <li>Seq2Seq LSTM/GRU deep learning architectures for wireless channel state forecasting</li>
+            <li>Asynchronous transmission optimization mapped directly to hardware SDR metrics (SNR/RSSI)</li>
+            <li>Taxonomy of LLM agent failure modes in multi-turn tool-calling environments</li>
+          </ul>
+          <div class="lobe-tech">
+            <span class="tag">LSTM / GRU</span>
+            <span class="tag">SDR Metrics</span>
+            <span class="tag">Agent Taxonomy</span>
+            <span class="tag">Deep Learning</span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       04 · THE NEURAL PROCESS HUB: FROM SIGNAL TO ACTION
+       ============================================================ -->
+  <section id="process-hub" class="process-section">
+    <div class="wrap">
+
+      <div class="section-intro">
+        <span class="mono-badge">04 / NEURAL PROCESS HUB</span>
+        <h2 class="editorial-display-title">
+          <span>FROM SIGNAL</span>
+          <span>TO <em class="serif-accent">ACTION.</em></span>
+        </h2>
+        <p class="section-lede">
+          Mapping raw physical telemetry and unstructured data into verified autonomous decisions through a central computational engine.
+        </p>
+      </div>
+
+      <!-- Linear Conceptual Vector -->
+      <div class="process-pipeline-indicator">
+        <span class="pipe-node active">SIGNAL</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-node active">CODE</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-node active">NEURAL NETWORK</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-node active highlight">BRAIN</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-node active">INTENT</span>
+        <span class="pipe-arrow">→</span>
+        <span class="pipe-node active">ACTION</span>
+      </div>
+
+      <!-- Process Visual Hub Structure (Inspired by Reference 2) -->
+      <div class="hub-visual-container corners">
+        
+        <!-- Left: Ingest Sources -->
+        <div class="hub-column hub-sources">
+          <div class="hub-col-header">
+            <span class="mono-label">SOURCES / INFLOW</span>
+            <h4>Sensory &amp; Telemetry Inputs</h4>
+          </div>
+          <div class="hub-card-stack">
+            <div class="hub-card" data-channel="signals">
+              <div class="hub-dot-indicator"></div>
+              <div class="hub-card-text">
+                <b>Hardware &amp; Biological Signals</b>
+                <span>SDR SNR/RSSI telemetry · EMG gesture feature vectors</span>
+              </div>
+            </div>
+            <div class="hub-card" data-channel="docs">
+              <div class="hub-dot-indicator"></div>
+              <div class="hub-card-text">
+                <b>Unstructured Knowledge Bases</b>
+                <span>Domain documentation, technical manuals &amp; student answers</span>
+              </div>
+            </div>
+            <div class="hub-card" data-channel="schemas">
+              <div class="hub-dot-indicator"></div>
+              <div class="hub-card-text">
+                <b>Structural Contracts</b>
+                <span>Pydantic v2 schemas &amp; PostgreSQL relational models</span>
+              </div>
+            </div>
+            <div class="hub-card" data-channel="policy">
+              <div class="hub-dot-indicator"></div>
+              <div class="hub-card-text">
+                <b>Operational Invariants</b>
+                <span>Deterministic safety bounds &amp; idempotent recovery rules</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: The Neural Core Engine -->
+        <div class="hub-center-core">
+          <div class="orbital-ring ring-outer"></div>
+          <div class="orbital-ring ring-mid"></div>
+          <div class="orbital-ring ring-inner"></div>
+          
+          <div class="core-brain-symbol">
+            <span class="core-glyph">🧠</span>
+            <span class="core-title">NEURAL HUB</span>
+            <span class="core-status">COMPILING LIVE</span>
+          </div>
+
+          <div class="core-data-flow left-to-core" aria-hidden="true">
+            <span class="flow-particle p1"></span>
+            <span class="flow-particle p2"></span>
+            <span class="flow-particle p3"></span>
+          </div>
+          <div class="core-data-flow core-to-right" aria-hidden="true">
+            <span class="flow-particle p4"></span>
+            <span class="flow-particle p5"></span>
+            <span class="flow-particle p6"></span>
+          </div>
+        </div>
+
+        <!-- Right: Action Destinations -->
+        <div class="hub-column hub-destinations">
+          <div class="hub-col-header">
+            <span class="mono-label">DESTINATIONS / OUTFLOW</span>
+            <h4>Verified Production Systems</h4>
+          </div>
+          <div class="hub-card-stack">
+            <div class="hub-card" data-dest="hitman">
+              <div class="hub-card-text">
+                <b>HITMAN (Live PWA)</b>
+                <span>Live IPL score ingest · private leagues · Prisma persistence</span>
+              </div>
+              <span class="hub-status-pill">LIVE APP</span>
+            </div>
+            <div class="hub-card" data-dest="recoveryos">
+              <div class="hub-card-text">
+                <b>RecoveryOS (Control Plane)</b>
+                <span>Anomaly classification · dynamic policy recovery · Razorpay Buildathon</span>
+              </div>
+              <span class="hub-status-pill">AGENT CORE</span>
+            </div>
+            <div class="hub-card" data-dest="misfire">
+              <div class="hub-card-text">
+                <b>Misfire (Diagnostic Engine)</b>
+                <span>Cognitive misconception identification &amp; step remediation</span>
+              </div>
+              <span class="hub-status-pill">LIVE APP</span>
+            </div>
+            <div class="hub-card" data-dest="momentum">
+              <div class="hub-card-text">
+                <b>Momentum OS (Productivity)</b>
+                <span>Real-time Life Score SVG analytics · 365-day heatmaps</span>
+              </div>
+              <span class="hub-status-pill">LIVE APP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       05 · ADAPTIVE INTELLIGENCE: THE SYSTEM LEARNS
+       ============================================================ -->
+  <section id="experience" class="adaptive-section">
+    <div class="wrap">
+
+      <div class="section-intro">
+        <span class="mono-badge">05 / ADAPTIVE LEARNING</span>
+        <h2 class="editorial-display-title">
+          <span>THE SYSTEM</span>
+          <span><em class="serif-accent">LEARNS.</em></span>
+        </h2>
+        <p class="section-lede">
+          "Every interaction changes the system. Every signal teaches it something new." Real-world engineering roles, technical leadership, and organizational execution.
+        </p>
+      </div>
+
+      <!-- Experience Nodes Timeline -->
+      <div class="timeline-container">
+
+        <!-- Role 01: DevSora -->
+        <article class="timeline-node corners">
+          <div class="node-marker">
+            <span class="node-dot"></span>
+            <span class="node-line"></span>
+          </div>
+          <div class="node-body">
+            <div class="node-top-bar">
+              <span class="node-badge current">ACTIVE ANCHOR ROLE</span>
+              <span class="node-dates">SEP 2026 – PRESENT</span>
+            </div>
+            <h3 class="node-role">Founding AI/ML Engineer</h3>
+            <p class="node-company">DevSora · Jaipur, India</p>
+            <p class="node-desc">
+              Leading the architectural design and deployment of production AI systems, specialized hybrid RAG pipelines, and local inference validation harnesses. Driving end-to-end implementation from model evaluation to scalable software backend services.
+            </p>
+            <div class="node-tags">
+              <span class="tag">AI Systems</span>
+              <span class="tag">Production RAG</span>
+              <span class="tag">Agent Reliability</span>
+              <span class="tag">LLMOps</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Role 02: Enactus MUJ -->
+        <article class="timeline-node corners">
+          <div class="node-marker">
+            <span class="node-dot"></span>
+            <span class="node-line"></span>
+          </div>
+          <div class="node-body">
+            <div class="node-top-bar">
+              <span class="node-badge">LEADERSHIP</span>
+              <span class="node-dates">JUN 2026 – PRESENT</span>
+            </div>
+            <h3 class="node-role">Project Director</h3>
+            <p class="node-company">Enactus MUJ · Jaipur, India</p>
+            <p class="node-subrole">Previously: Project Joint Head (Jul 2025 – Jun 2026)</p>
+            <p class="node-desc">
+              Directing social impact technology projects, coordinating cross-functional student engineering teams, and guiding execution from problem validation to community deployment.
+            </p>
+            <div class="node-tags">
+              <span class="tag">Project Leadership</span>
+              <span class="tag">Engineering Management</span>
+              <span class="tag">Social Impact Tech</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Role 03: 180 Degrees Consulting -->
+        <article class="timeline-node corners">
+          <div class="node-marker">
+            <span class="node-dot"></span>
+            <span class="node-line"></span>
+          </div>
+          <div class="node-body">
+            <div class="node-top-bar">
+              <span class="node-badge">TECHNICAL STRATEGY</span>
+              <span class="node-dates">SEP 2025 – JUL 2026</span>
+            </div>
+            <h3 class="node-role">Technical Joint Head</h3>
+            <p class="node-company">180 Degrees Consulting · Jaipur, India</p>
+            <p class="node-desc">
+              Headed technical strategy and data analytics engagements, delivering evidence-backed recommendations and digital tool solutions for socially conscious organizations and non-profits.
+            </p>
+            <div class="node-tags">
+              <span class="tag">Technical Strategy</span>
+              <span class="tag">Data Analytics</span>
+              <span class="tag">Client Engagements</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       06 · MIND MEETS MACHINE: THE ENGINEERING PORTFOLIO
+       ============================================================ -->
+  <section id="projects" class="portfolio-section">
+    <div class="wrap">
+
+      <div class="section-intro">
+        <span class="mono-badge">06 / ARTIFACTS &amp; SYSTEMS</span>
+        <h2 class="editorial-display-title">
+          <span>MIND</span>
+          <span>MEETS</span>
+          <span><em class="serif-accent">MACHINE.</em></span>
+        </h2>
+        <p class="section-lede">
+          10 production projects and 2 ongoing research publications. Every claim, stack tag, and performance invariant is backed by public repositories.
+        </p>
+      </div>
+
+      <!-- ========================================================
+           TOP 3 FEATURED FLAGSHIPS
+           ======================================================== -->
+      <div class="featured-stack">
+
+        <!-- Featured 01: HITMAN -->
+        <article class="featured-card corners" id="flagship-hitman">
+          <div class="featured-grid">
+            <div class="featured-info">
+              <div class="card-status-bar">
+                <span class="status-badge live">FEATURED · LIVE</span>
+                <span class="platform-badge">PWA</span>
+              </div>
+              <h3 class="featured-name">HITMAN</h3>
+              <p class="featured-type">Fantasy Cricket Platform (PWA)</p>
+              <p class="featured-desc">
+                Full-stack Progressive Web App for IPL fantasy cricket. Real-time live scores, private leagues with unique invite codes, relational persistence layer designed with PostgreSQL and Prisma ORM, and NextAuth session management. Deployed on Vercel.
+              </p>
+              <ul class="verified-bullets">
+                <li>Real-time live score updates and ball-by-ball commentary ingestion</li>
+                <li>Private leagues with unique invite codes and automated standings calculation</li>
+                <li>Relational persistence layer designed with PostgreSQL and Prisma ORM</li>
+                <li>Progressive Web App architecture with NextAuth session management</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Prisma</span>
+                <span class="tag">NextAuth</span>
+                <span class="tag">PWA</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://hitman-drab.vercel.app/" class="btn-solid" target="_blank" rel="noopener">LIVE APP ↗</a>
+                <a href="https://github.com/Haus-Nous/Hitman" class="btn-outline" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+              </div>
+            </div>
+
+            <!-- Terminal Visual -->
+            <div class="featured-visual">
+              <div class="terminal-shell corners">
+                <div class="terminal-topbar">
+                  <div class="term-dots">
+                    <span class="dot d-red"></span>
+                    <span class="dot d-yellow"></span>
+                    <span class="dot d-green"></span>
+                  </div>
+                  <span class="term-title">hitman — live-engine</span>
+                </div>
+                <div class="terminal-screen">
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">status</span></div>
+                  <div class="t-row t-res">PRISMA · POSTGRESQL · CONNECTED</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">sync --live</span></div>
+                  <div class="t-row t-res">Fixture sync active · NextAuth enabled</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">leagues --mode</span></div>
+                  <div class="t-row t-res">Private leagues &amp; invite-code routing ready</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">scores --feed</span></div>
+                  <div class="t-row t-res highlight">Ball-by-ball commentary ingest active</div>
+                  <div class="t-row t-cursor"><span class="t-prompt">$</span> <span class="cursor-block">_</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 02: RecoveryOS -->
+        <article class="featured-card corners" id="flagship-recoveryos">
+          <div class="featured-grid">
+            <div class="featured-info">
+              <div class="card-status-bar">
+                <span class="status-badge buildathon">FEATURED · AI BUILDATHON</span>
+                <span class="platform-badge">CONTROL PLANE</span>
+              </div>
+              <h3 class="featured-name">RecoveryOS</h3>
+              <p class="featured-type">Payment Reliability &amp; Revenue Recovery Control Plane</p>
+              <p class="featured-desc">
+                Autonomous payment failure recovery control plane built for the Razorpay AI Buildathon. Enforces a non-negotiable architectural invariant: <em>AI proposes, policy authorizes, infrastructure executes</em>. Features anomaly classification, root-cause analysis, and dynamic policy evaluation.
+              </p>
+              <ul class="verified-bullets">
+                <li>Enforces deterministic invariant: AI proposes, Policy authorizes, Infrastructure executes</li>
+                <li>Autonomous payment anomaly classification and failure root-cause analysis</li>
+                <li>Dynamic recovery policy evaluation preventing uncontrolled execution loops</li>
+                <li>Built for the Razorpay AI Buildathon under the AI Revenue Recovery track</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">AI Agents</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://github.com/Haus-Nous/RecoveryOS" class="btn-solid" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+              </div>
+            </div>
+
+            <!-- Terminal Visual -->
+            <div class="featured-visual">
+              <div class="terminal-shell corners">
+                <div class="terminal-topbar">
+                  <div class="term-dots">
+                    <span class="dot d-red"></span>
+                    <span class="dot d-yellow"></span>
+                    <span class="dot d-green"></span>
+                  </div>
+                  <span class="term-title">recoveryos — control-plane</span>
+                </div>
+                <div class="terminal-screen">
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">invariant --check</span></div>
+                  <div class="t-row t-res highlight">AI PROPOSES · POLICY AUTHORIZES · INFRASTRUCTURE EXECUTES</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">anomaly --detect</span></div>
+                  <div class="t-row t-res">Root cause: Downstream gateway timeout spike</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">policy --evaluate</span></div>
+                  <div class="t-row t-res">Authorized: Idempotent adaptive retry path</div>
+                  <div class="t-row t-cursor"><span class="t-prompt">$</span> <span class="cursor-block">_</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 03: Misfire -->
+        <article class="featured-card corners" id="flagship-misfire">
+          <div class="featured-grid">
+            <div class="featured-info">
+              <div class="card-status-bar">
+                <span class="status-badge live">FEATURED · LIVE</span>
+                <span class="platform-badge">EDTECH ENGINE</span>
+              </div>
+              <h3 class="featured-name">Misfire</h3>
+              <p class="featured-type">Intelligent EdTech Diagnostic Engine</p>
+              <p class="featured-desc">
+                Cognitive diagnostic engine that identifies the specific misconception behind wrong student answers instead of treating mistakes as binary failures. Generates targeted step-by-step remediation tailored to student reasoning patterns. Deployed on Vercel with Next.js.
+              </p>
+              <ul class="verified-bullets">
+                <li>Replaces binary pass/fail grading with cognitive misconception diagnostics</li>
+                <li>Generates step-by-step contextual remediation based on specific error patterns</li>
+                <li>Interactive student assessment interface with dynamic question routing</li>
+                <li>Production deployment on Vercel with structured LLM reasoning prompts</li>
+              </ul>
+              <div class="project-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">React</span>
+                <span class="tag">LLM Diagnostics</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">Vercel</span>
+              </div>
+              <div class="project-links-row">
+                <a href="https://misfire-eta.vercel.app/" class="btn-solid" target="_blank" rel="noopener">LIVE APP ↗</a>
+                <a href="https://github.com/Haus-Nous/misfire" class="btn-outline" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+              </div>
+            </div>
+
+            <!-- Terminal Visual -->
+            <div class="featured-visual">
+              <div class="terminal-shell corners">
+                <div class="terminal-topbar">
+                  <div class="term-dots">
+                    <span class="dot d-red"></span>
+                    <span class="dot d-yellow"></span>
+                    <span class="dot d-green"></span>
+                  </div>
+                  <span class="term-title">misfire — diagnostic-core</span>
+                </div>
+                <div class="terminal-screen">
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">diagnose --attempt</span></div>
+                  <div class="t-row t-res">Evaluating student reasoning path...</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">misconception --identify</span></div>
+                  <div class="t-row t-res">Classified: Sign inversion during term distribution</div>
+                  <div class="t-row"><span class="t-prompt">$</span> <span class="t-cmd">remediation --dispatch</span></div>
+                  <div class="t-row t-res highlight">Targeted concept remediation generated</div>
+                  <div class="t-row t-cursor"><span class="t-prompt">$</span> <span class="cursor-block">_</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ========================================================
+           7 MAIN GRID PROJECTS
+           ======================================================== -->
+      <div class="section-subheading">
+        <span class="mono-label">PRODUCTION SYSTEMS DIRECTORY</span>
+        <h3>7 Production Systems &amp; Frameworks</h3>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- 04: Enterprise RAG Architecture -->
+        <article class="project-card corners" id="card-rag">
+          <div class="card-header">
+            <span class="card-num">01</span>
+            <span class="card-status complete">COMPLETE</span>
+          </div>
+          <h4 class="card-title">Enterprise RAG Architecture</h4>
+          <p class="card-subtitle">Production-Ready Hybrid Retrieval &amp; Evaluation System</p>
+          <ul class="card-bullets">
+            <li>Hybrid retrieval combining sparse lexical ranking (BM25) with dense vector embeddings</li>
+            <li>Cross-encoder re-ranking (ms-marco-MiniLM-L-6-v2) for noise elimination</li>
+            <li>Strict citation enforcement and source verification to prevent hallucinations</li>
+            <li>Automated quality evaluation and regression checks with Ragas and HF datasets</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">BM25</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">Cross-Encoder</span>
+            <span class="tag">Ragas</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/Haus-Nous/Enterprise_RAG_Architecture" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+        <!-- 05: RAGOps -->
+        <article class="project-card corners" id="card-ragops">
+          <div class="card-header">
+            <span class="card-num">02</span>
+            <span class="card-status complete">COMPLETE</span>
+          </div>
+          <h4 class="card-title">RAGOps</h4>
+          <p class="card-subtitle">LLMOps Observability, Profiling &amp; Regression Gating</p>
+          <ul class="card-bullets">
+            <li>Decorator-based latency profiling across retrieval, re-ranking, and generation</li>
+            <li>Latency distribution analysis (p50/p95) and token utilization tracking via SQLite</li>
+            <li>Interactive Streamlit and Plotly dashboard visualizing execution traces</li>
+            <li>CI/CD regression gating asserting quality thresholds on evaluation datasets</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">LangFuse</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Plotly</span>
+            <span class="tag">LLMOps</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/Haus-Nous/RAGOps" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+        <!-- 06: LocalLLM Lab -->
+        <article class="project-card corners" id="card-localllm">
+          <div class="card-header">
+            <span class="card-num">03</span>
+            <span class="card-status complete">COMPLETE</span>
+          </div>
+          <h4 class="card-title">LocalLLM Lab</h4>
+          <p class="card-subtitle">Offline SLM Inference &amp; Hardware Benchmarking Harness</p>
+          <ul class="card-bullets">
+            <li>Offline 3–7B parameter model orchestration via Ollama (Llama 3.2, Phi-3, Qwen)</li>
+            <li>Strict Pydantic v2 schema validation with automated query retry and correction loops</li>
+            <li>Benchmarking harness evaluating memory utilization (psutil), TTFT, and tok/s throughput</li>
+            <li>Privacy-first local execution with zero external network dependencies</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Pydantic</span>
+            <span class="tag">Llama 3.2</span>
+            <span class="tag">Benchmarking</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/Haus-Nous/LocalLLM-Lab" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+        <!-- 07: Bhoomi-Setu -->
+        <article class="project-card corners" id="card-bhoomi">
+          <div class="card-header">
+            <span class="card-num">04</span>
+            <span class="card-status live">LIVE DEMO</span>
+          </div>
+          <h4 class="card-title">Bhoomi-Setu</h4>
+          <p class="card-subtitle">Land Record Intelligence &amp; Verification Assistant</p>
+          <ul class="card-bullets">
+            <li>Transforms fragmented survey records into traceable evidence and deterministic verification</li>
+            <li>Three-way area reconciliation cross-referencing maps, mutations, and registry data</li>
+            <li>Synthetic-first parcel intelligence designed for pre-survey readiness exploration</li>
+            <li>Responsive Next.js web application deployed on Vercel</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">React</span>
+            <span class="tag">Parcel Intelligence</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://bhoomi-setu-xi.vercel.app/" class="card-link" target="_blank" rel="noopener">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous/Bhoomi-Setu" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+        <!-- 08: Momentum OS -->
+        <article class="project-card corners" id="card-momentum">
+          <div class="card-header">
+            <span class="card-num">05</span>
+            <span class="card-status live">LIVE DEMO</span>
+          </div>
+          <h4 class="card-title">Momentum OS</h4>
+          <p class="card-subtitle">Personal Productivity Operating System</p>
+          <ul class="card-bullets">
+            <li>Real-time 0–100 Life Score SVG gauge evaluating habit streaks, completion, and velocity</li>
+            <li>6-view task manager (Kanban, Gantt, Timeline, Calendar, Matrix, Data Table)</li>
+            <li>Habit lifecycle engine with 365-day contribution heatmaps and milestones</li>
+            <li>Built with Next.js 15 App Router, Zustand state management, and Web Audio API</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Zustand</span>
+            <span class="tag">Framer Motion</span>
+            <span class="tag">Recharts</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://momentum-os-olive.vercel.app/" class="card-link" target="_blank" rel="noopener">LIVE APP ↗</a>
+            <a href="https://github.com/Haus-Nous/momentum_os" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+        <!-- 09: The White Knight -->
+        <article class="project-card corners" id="card-whiteknight">
+          <div class="card-header">
+            <span class="card-num">06</span>
+            <span class="card-status live">LIVE DEMO</span>
+          </div>
+          <h4 class="card-title">The White Knight</h4>
+          <p class="card-subtitle">Autonomous Job Application Command Center</p>
+          <ul class="card-bullets">
+            <li>Analyzes job descriptions to score candidate resume alignment against ATS keywords</li>
+            <li>Automated profile ingestion and document drafting to reduce manual application overhead</li>
+            <li>Application pipeline tracking across multiple candidate stages and statuses</li>
+            <li>Full-stack web application built with TypeScript and Next.js</li>
+          </ul>
           <div class="project-tags">
             <span class="tag">Next.js</span>
             <span class="tag">TypeScript</span>
             <span class="tag">React</span>
-            <span class="tag">LLM Diagnostics</span>
             <span class="tag">Tailwind CSS</span>
+            <span class="tag">ATS Scoring</span>
             <span class="tag">Vercel</span>
           </div>
-          <div class="project-links">
-            <a href="https://misfire-eta.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-            <a href="https://github.com/Haus-Nous/misfire" class="project-link" target="_blank">GITHUB REPO ↗</a>
+          <div class="card-footer">
+            <a href="https://the-white-knight-theta.vercel.app/" class="card-link" target="_blank" rel="noopener">LIVE APP (LOGIN REQUIRED) ↗</a>
+            <a href="https://github.com/Haus-Nous/-The_White_knight" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
           </div>
+        </article>
+
+        <!-- 10: NeuroProx -->
+        <article class="project-card corners" id="card-neuroprox">
+          <div class="card-header">
+            <span class="card-num">07</span>
+            <span class="card-status hackathon">HACKATHON TEAM PROJECT</span>
+          </div>
+          <h4 class="card-title">NeuroProx</h4>
+          <p class="card-subtitle">EMG Gesture Classification &amp; Offline Voice Control</p>
+          <ul class="card-bullets">
+            <li>Collaborative hackathon project for bionic prosthetic arm control</li>
+            <li>Extracted time-domain signal features (RMS, MAV, zero-crossings, variance) using NumPy and SciPy</li>
+            <li>Trained leakage-safe gesture classifiers using scikit-learn (RandomForest, SVM) with Stratified K-Fold validation</li>
+            <li>Built offline voice control integration using Vosk via an immutable command bus</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">Vosk</span>
+            <span class="tag">EMG Sensors</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/Haus-Nous/Neuroprox" class="card-link" target="_blank" rel="noopener">GITHUB REPO ↗</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ========================================================
+           ONGOING RESEARCH PUBLICATIONS
+           ======================================================== -->
+      <div id="research" class="section-subheading" style="margin-top: 64px;">
+        <span class="mono-label">THEORETICAL &amp; APPLIED INQUIRY</span>
+        <h3>02 Ongoing Research Initiatives</h3>
+      </div>
+
+      <div class="research-grid">
+
+        <article class="research-card corners">
+          <div class="research-status-pill">ACTIVE INVESTIGATION</div>
+          <h4 class="research-title">Failure-Aware Agent Framework (FAAF)</h4>
+          <p class="research-meta">Autonomous Agent Reliability &amp; Runtime Failure Recovery</p>
+          <p class="research-desc">
+            Researching runtime failure detection in long-horizon autonomous systems. Developing a novel taxonomy of LLM agent failures — infinite loops, tool misuse, hallucinated execution success — and implementing recovery strategies including state rollbacks and self-reflection loops.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Agent Taxonomy</span>
+            <span class="tag">Runtime Detection</span>
+            <span class="tag">State Rollbacks</span>
+            <span class="tag">Autonomous Systems</span>
+          </div>
+        </article>
+
+        <article class="research-card corners">
+          <div class="research-status-pill">ACTIVE INVESTIGATION</div>
+          <h4 class="research-title">Wireless Channel Prediction with AI</h4>
+          <p class="research-meta">Deep Learning for Communication Networks</p>
+          <p class="research-desc">
+            Sequence-to-sequence deep learning architectures (LSTM/GRU encoder-decoders) for time-series wireless channel forecasting mapped directly to hardware SDR metrics (SNR/RSSI). Optimizing transmission parameters asynchronously to lower network latency.
+          </p>
+          <div class="project-tags">
+            <span class="tag">LSTM / GRU</span>
+            <span class="tag">Time-Series</span>
+            <span class="tag">SDR Metrics</span>
+            <span class="tag">Latency Optimization</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ========================================================
+           SYSTEMS & TOOLS MATRIX
+           ======================================================== -->
+      <div class="section-subheading" style="margin-top: 64px;">
+        <span class="mono-label">VERIFIED COMPETENCY</span>
+        <h3>Systems, Frameworks &amp; Tools Matrix</h3>
+      </div>
+
+      <div class="skills-matrix corners">
+        <div class="skill-row">
+          <span class="skill-category">LANGUAGES</span>
+          <span class="skill-items">Python · TypeScript · JavaScript · SQL</span>
         </div>
-        <div class="project-featured-visual">
-          <div class="terminal-window">
-            <div class="terminal-bar">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot yellow"></span>
-              <span class="terminal-dot green"></span>
-              <span class="terminal-title">misfire — diagnostic-engine</span>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">diagnose --attempt</span></div>
-              <div class="terminal-line"><span class="t-output">Evaluating student reasoning path...</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">misconception --identify</span></div>
-              <div class="terminal-line"><span class="t-output">Classified: Sign inversion during term distribution</span></div>
-              <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">remediation --dispatch</span></div>
-              <div class="terminal-line"><span class="t-output accent">Targeted concept remediation generated</span></div>
-              <div class="terminal-line blink"><span class="t-prompt">$</span> <span class="cursor">_</span></div>
-            </div>
-          </div>
+        <div class="skill-row">
+          <span class="skill-category">AI SYSTEMS</span>
+          <span class="skill-items">RAG (Hybrid BM25 + Vector) · Multi-Agent Orchestration · Local SLM Inference · LLMOps · Prompt Engineering</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">DATA &amp; ML</span>
+          <span class="skill-items">pandas · NumPy · scikit-learn · SciPy · Plotly · Jupyter Notebooks · Hugging Face Datasets</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">FRAMEWORKS</span>
+          <span class="skill-items">Next.js · FastAPI · React · LangChain · LangGraph · Tailwind CSS · WebSockets</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">DATABASES</span>
+          <span class="skill-items">PostgreSQL · Prisma · ChromaDB · FAISS · SQLite · Redis</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">TOOLING</span>
+          <span class="skill-items">Docker · Vercel · Ollama · LangFuse · Ragas · Git · Linux</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">CERTIFICATIONS</span>
+          <span class="skill-items">Vector Databases for RAG · Build RAG Applications (IBM)</span>
         </div>
       </div>
-    </div>
-
-    <!-- Project Grid -->
-    <div class="project-grid">
-
-      <!-- 01: Enterprise RAG Architecture -->
-      <article class="project-card" id="project-rag">
-        <div class="project-card-header">
-          <span class="project-number">01</span>
-          <span class="project-status">COMPLETE</span>
-        </div>
-        <h3 class="project-name">Enterprise RAG Architecture</h3>
-        <p class="project-type">Production-Ready Hybrid Retrieval &amp; Evaluation System</p>
-        <ul class="project-details">
-          <li>Hybrid retrieval combining sparse lexical ranking (BM25) with dense vector embeddings</li>
-          <li>Cross-encoder re-ranking (ms-marco-MiniLM-L-6-v2) for noise elimination</li>
-          <li>Strict citation enforcement and source verification to prevent hallucinations</li>
-          <li>Automated quality evaluation and regression checks with Ragas and HF datasets</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">BM25</span>
-          <span class="tag">ChromaDB</span>
-          <span class="tag">Cross-Encoder</span>
-          <span class="tag">Ragas</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Haus-Nous/Enterprise_RAG_Architecture" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 02: RAGOps -->
-      <article class="project-card" id="project-ragops">
-        <div class="project-card-header">
-          <span class="project-number">02</span>
-          <span class="project-status">COMPLETE</span>
-        </div>
-        <h3 class="project-name">RAGOps</h3>
-        <p class="project-type">LLMOps Observability, Profiling &amp; Regression Gating</p>
-        <ul class="project-details">
-          <li>Decorator-based latency profiling across retrieval, re-ranking, and generation</li>
-          <li>Latency distribution analysis (p50/p95) and token utilization tracking via SQLite</li>
-          <li>Interactive Streamlit and Plotly dashboard visualizing execution traces</li>
-          <li>CI/CD regression gating asserting quality thresholds on evaluation datasets</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">LangFuse</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">Streamlit</span>
-          <span class="tag">Plotly</span>
-          <span class="tag">LLMOps</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Haus-Nous/RAGOps" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 03: LocalLLM Lab -->
-      <article class="project-card" id="project-localllm">
-        <div class="project-card-header">
-          <span class="project-number">03</span>
-          <span class="project-status">COMPLETE</span>
-        </div>
-        <h3 class="project-name">LocalLLM Lab</h3>
-        <p class="project-type">Offline SLM Inference &amp; Hardware Benchmarking Harness</p>
-        <ul class="project-details">
-          <li>Offline 3–7B parameter model orchestration via Ollama (Llama 3.2, Phi-3, Qwen)</li>
-          <li>Strict Pydantic v2 schema validation with automated query retry and correction loops</li>
-          <li>Benchmarking harness evaluating memory utilization (psutil), TTFT, and tok/s throughput</li>
-          <li>Privacy-first local execution with zero external network dependencies</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Ollama</span>
-          <span class="tag">Pydantic</span>
-          <span class="tag">Llama 3.2</span>
-          <span class="tag">Benchmarking</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Haus-Nous/LocalLLM-Lab" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 04: Bhoomi-Setu -->
-      <article class="project-card" id="project-bhoomi">
-        <div class="project-card-header">
-          <span class="project-number">04</span>
-          <span class="project-status">LIVE DEMO</span>
-        </div>
-        <h3 class="project-name">Bhoomi-Setu</h3>
-        <p class="project-type">Land Record Intelligence &amp; Verification Assistant</p>
-        <ul class="project-details">
-          <li>Transforms fragmented survey records into traceable evidence and deterministic verification</li>
-          <li>Three-way area reconciliation cross-referencing maps, mutations, and registry data</li>
-          <li>Synthetic-first parcel intelligence designed for pre-survey readiness exploration</li>
-          <li>Responsive Next.js web application deployed on Vercel</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Next.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Tailwind CSS</span>
-          <span class="tag">React</span>
-          <span class="tag">Parcel Intelligence</span>
-          <span class="tag">Vercel</span>
-        </div>
-        <div class="project-links">
-          <a href="https://bhoomi-setu-xi.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-          <a href="https://github.com/Haus-Nous/Bhoomi-Setu" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 05: Momentum OS -->
-      <article class="project-card" id="project-momentum">
-        <div class="project-card-header">
-          <span class="project-number">05</span>
-          <span class="project-status">LIVE DEMO</span>
-        </div>
-        <h3 class="project-name">Momentum OS</h3>
-        <p class="project-type">Personal Productivity Operating System</p>
-        <ul class="project-details">
-          <li>Real-time 0–100 Life Score SVG gauge evaluating habit streaks, completion, and velocity</li>
-          <li>6-view task manager (Kanban, Gantt, Timeline, Calendar, Matrix, Data Table)</li>
-          <li>Habit lifecycle engine with 365-day contribution heatmaps and milestones</li>
-          <li>Built with Next.js 15 App Router, Zustand state management, and Web Audio API</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Next.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Tailwind CSS</span>
-          <span class="tag">Zustand</span>
-          <span class="tag">Framer Motion</span>
-          <span class="tag">Recharts</span>
-        </div>
-        <div class="project-links">
-          <a href="https://momentum-os-olive.vercel.app/" class="project-link" target="_blank">LIVE APP ↗</a>
-          <a href="https://github.com/Haus-Nous/momentum_os" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 06: The White Knight -->
-      <article class="project-card" id="project-whiteknight">
-        <div class="project-card-header">
-          <span class="project-number">06</span>
-          <span class="project-status">LIVE DEMO</span>
-        </div>
-        <h3 class="project-name">The White Knight</h3>
-        <p class="project-type">Autonomous Job Application Command Center</p>
-        <ul class="project-details">
-          <li>Analyzes job descriptions to score candidate resume alignment against ATS keywords</li>
-          <li>Automated profile ingestion and document drafting to reduce manual application overhead</li>
-          <li>Application pipeline tracking across multiple candidate stages and statuses</li>
-          <li>Full-stack web application built with TypeScript and Next.js</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Next.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">React</span>
-          <span class="tag">Tailwind CSS</span>
-          <span class="tag">ATS Scoring</span>
-          <span class="tag">Vercel</span>
-        </div>
-        <div class="project-links">
-          <a href="https://the-white-knight-theta.vercel.app/" class="project-link" target="_blank">LIVE APP (LOGIN REQUIRED) ↗</a>
-          <a href="https://github.com/Haus-Nous/-The_White_knight" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
-
-      <!-- 07: NeuroProx -->
-      <article class="project-card" id="project-neuroprox">
-        <div class="project-card-header">
-          <span class="project-number">07</span>
-          <span class="project-status">HACKATHON TEAM PROJECT</span>
-        </div>
-        <h3 class="project-name">NeuroProx</h3>
-        <p class="project-type">EMG Gesture Classification &amp; Offline Voice Control</p>
-        <ul class="project-details">
-          <li>Collaborative hackathon project for bionic prosthetic arm control</li>
-          <li>Extracted time-domain signal features (RMS, MAV, zero-crossings, variance) using NumPy and SciPy</li>
-          <li>Trained leakage-safe gesture classifiers using scikit-learn (RandomForest, SVM) with Stratified K-Fold validation</li>
-          <li>Built offline voice control integration using Vosk via an immutable command bus</li>
-        </ul>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">SciPy</span>
-          <span class="tag">Vosk</span>
-          <span class="tag">EMG Sensors</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Haus-Nous/Neuroprox" class="project-link" target="_blank">GITHUB REPO ↗</a>
-        </div>
-      </article>
 
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section">
-    <div class="section-header">
-      <span class="section-index">03</span>
-      <h2 class="section-title">EXPERIENCE</h2>
-    </div>
-    <div class="experience-grid">
-      <article class="experience-card">
-        <div class="experience-header">
-          <div>
-            <h3 class="experience-role">Founding AI/ML Engineer</h3>
-            <p class="experience-company">DevSora · Jaipur, India</p>
+
+  <!-- ============================================================
+       07 · FUTURE & CONNECT: THE FUTURE ISN'T ARTIFICIAL
+       ============================================================ -->
+  <section id="connect" class="final-section">
+    <div class="wrap">
+
+      <div class="final-headline-block">
+        <span class="mono-badge">07 / THE HORIZON</span>
+        <h2 class="editorial-display-title">
+          <span>THE FUTURE</span>
+          <span>ISN'T ARTIFICIAL.</span>
+          <span>IT'S <em class="serif-accent">HUMAN.</em></span>
+        </h2>
+        <p class="final-subtext">
+          Actively seeking <b>Software Engineer</b>, <b>AI/ML Engineer</b>, and <b>Data Science / ML</b> internship and full-time opportunities. Let's engineer reliable, verifiable intelligence.
+        </p>
+      </div>
+
+      <!-- Recruiter Direct Contact Grid -->
+      <div class="contact-grid">
+
+        <!-- Email with Copy Trigger -->
+        <div class="contact-card corners" id="contact-email-box">
+          <div class="contact-card-top">
+            <span class="contact-type">DIRECT INBOX</span>
+            <button class="btn-copy-email" id="btn-copy-email" type="button" title="Copy email address to clipboard">COPY</button>
           </div>
-          <span class="experience-period">SEP 2026 – PRESENT</span>
+          <h3 class="contact-primary-text">vaibhavisingh6655@gmail.com</h3>
+          <p class="contact-note">Fastest response within 24 hours</p>
+          <a href="mailto:vaibhavisingh6655@gmail.com" class="contact-action-link">OPEN IN MAIL CLIENT ↗</a>
         </div>
-      </article>
 
-      <article class="experience-card">
-        <div class="experience-header">
-          <div>
-            <h3 class="experience-role">Project Director</h3>
-            <p class="experience-company">Enactus MUJ · Jaipur, India</p>
-            <p class="experience-subrole">Previously: Project Joint Head (Jul 2025 – Jun 2026)</p>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/vaibhavi-singh-213518378/" class="contact-card corners" target="_blank" rel="noopener">
+          <div class="contact-card-top">
+            <span class="contact-type">PROFESSIONAL NETWORK</span>
           </div>
-          <span class="experience-period">JUN 2026 – PRESENT</span>
-        </div>
-      </article>
+          <h3 class="contact-primary-text">LinkedIn Profile</h3>
+          <p class="contact-note">/in/vaibhavi-singh-213518378</p>
+          <span class="contact-action-link">CONNECT ON LINKEDIN ↗</span>
+        </a>
 
-      <article class="experience-card">
-        <div class="experience-header">
-          <div>
-            <h3 class="experience-role">Technical Joint Head</h3>
-            <p class="experience-company">180 Degrees Consulting · Jaipur, India</p>
+        <!-- GitHub -->
+        <a href="https://github.com/Haus-Nous" class="contact-card corners" target="_blank" rel="noopener">
+          <div class="contact-card-top">
+            <span class="contact-type">PUBLIC REPOSITORIES</span>
           </div>
-          <span class="experience-period">SEP 2025 – JUL 2026</span>
+          <h3 class="contact-primary-text">GitHub Org / Profile</h3>
+          <p class="contact-note">@Haus-Nous · 10 Production Repos</p>
+          <span class="contact-action-link">EXPLORE SOURCE CODE ↗</span>
+        </a>
+
+        <!-- Resume Documents -->
+        <div class="contact-card corners">
+          <div class="contact-card-top">
+            <span class="contact-type">CURRICULUM VITAE</span>
+          </div>
+          <h3 class="contact-primary-text">Official Resume</h3>
+          <p class="contact-note">Formatted for ATS &amp; Executive Review</p>
+          <div class="resume-split-links">
+            <a href="/Vaibhavi_Singh_Resume.html" class="contact-action-link" target="_blank" rel="noopener">HTML VERSION ↗</a>
+            <span class="split-divider">·</span>
+            <a href="/Vaibhavi_Singh_Resume.docx" class="contact-action-link" download>DOCX DOWNLOAD ↓</a>
+          </div>
         </div>
-      </article>
-    </div>
-  </section>
 
-  <!-- Research -->
-  <section id="research" class="section">
-    <div class="section-header">
-      <span class="section-index">04</span>
-      <h2 class="section-title">ONGOING RESEARCH</h2>
-    </div>
-    <div class="research-grid">
-      <article class="research-card">
-        <div class="research-indicator"></div>
-        <div class="research-content">
-          <h3>Failure-Aware Agent Framework (FAAF)</h3>
-          <p class="research-subtitle">Autonomous Agent Reliability &amp; Failure Recovery</p>
-          <p>Researching runtime failure detection in long-horizon autonomous systems. Developing a novel taxonomy of LLM agent failures — infinite loops, tool misuse, hallucinated execution success — and implementing recovery strategies including state rollbacks and self-reflection loops.</p>
+      </div>
+
+      <!-- Academic Background Pill -->
+      <div class="academic-strip corners">
+        <div class="acad-item">
+          <span class="acad-label">DEGREE &amp; INSTITUTION</span>
+          <span class="acad-val">B.Tech Computer Science @ Manipal University Jaipur</span>
         </div>
-      </article>
-      <article class="research-card">
-        <div class="research-indicator"></div>
-        <div class="research-content">
-          <h3>Wireless Channel Prediction with AI</h3>
-          <p class="research-subtitle">Deep Learning for Communication Networks</p>
-          <p>Sequence-to-sequence deep learning architectures (LSTM/GRU encoder-decoders) for time-series wireless channel forecasting mapped directly to hardware SDR metrics (SNR/RSSI). Optimizing transmission parameters asynchronously to lower network latency.</p>
+        <div class="acad-item">
+          <span class="acad-label">TIMELINE</span>
+          <span class="acad-val">2024 – 2028 (Expected)</span>
         </div>
-      </article>
+        <div class="acad-item">
+          <span class="acad-label">HONORS</span>
+          <span class="acad-val">Dean's List Awardee</span>
+        </div>
+        <div class="acad-item">
+          <span class="acad-label">LOCATION</span>
+          <span class="acad-val">Jaipur, Rajasthan, India</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Skills / Systems -->
-  <section id="skills" class="section">
-    <div class="section-header">
-      <span class="section-index">05</span>
-      <h2 class="section-title">SYSTEMS &amp; TOOLS</h2>
-    </div>
-    <div class="skills-matrix">
-      <div class="skill-row">
-        <span class="skill-category">LANGUAGES</span>
-        <span class="skill-items">Python · TypeScript · JavaScript · SQL</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">AI SYSTEMS</span>
-        <span class="skill-items">RAG (Hybrid BM25 + Vector) · Multi-Agent Orchestration · Local SLM Inference · LLMOps · Prompt Engineering</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">DATA &amp; ML</span>
-        <span class="skill-items">pandas · NumPy · scikit-learn · SciPy · Plotly · Jupyter Notebooks · Hugging Face Datasets</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">FRAMEWORKS</span>
-        <span class="skill-items">Next.js · FastAPI · React · LangChain · LangGraph · Tailwind CSS · WebSockets</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">DATABASES</span>
-        <span class="skill-items">PostgreSQL · Prisma · ChromaDB · FAISS · SQLite · Redis</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">TOOLING</span>
-        <span class="skill-items">Docker · Vercel · Ollama · LangFuse · Ragas · Git · Linux</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">CERTIFICATIONS</span>
-        <span class="skill-items">Vector Databases for RAG · Build RAG Applications (IBM)</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="section-header">
-      <span class="section-index">06</span>
-      <h2 class="section-title">CONNECT</h2>
-    </div>
-    <div class="contact-grid">
-      <a href="mailto:vaibhavisingh6655@gmail.com" class="contact-card" id="contact-email">
-        <span class="contact-label">EMAIL</span>
-        <span class="contact-value">vaibhavisingh6655@gmail.com</span>
-      </a>
-      <a href="https://www.linkedin.com/in/vaibhavi-singh-213518378/" class="contact-card" target="_blank" id="contact-linkedin">
-        <span class="contact-label">LINKEDIN</span>
-        <span class="contact-value">vaibhavi-singh ↗</span>
-      </a>
-      <a href="https://github.com/Haus-Nous" class="contact-card" target="_blank" id="contact-github">
-        <span class="contact-label">GITHUB</span>
-        <span class="contact-value">Haus-Nous ↗</span>
-      </a>
-      <a href="https://hitman-drab.vercel.app/" class="contact-card" target="_blank" id="contact-hitman">
-        <span class="contact-label">HITMAN APP</span>
-        <span class="contact-value">hitman-drab.vercel.app ↗</span>
-      </a>
-      <a href="https://misfire-eta.vercel.app/" class="contact-card" target="_blank" id="contact-misfire">
-        <span class="contact-label">MISFIRE APP</span>
-        <span class="contact-value">misfire-eta.vercel.app ↗</span>
-      </a>
-    </div>
-    <div class="contact-footer">
-      <p>Jaipur, India · B.Tech CS, Manipal University Jaipur · 2024–2028 (expected) · Dean's List</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer id="footer">
-    <div class="footer-inner">
-      <span class="footer-left">© 2026 VAIBHAVI SINGH</span>
-      <span class="footer-right">DESIGNED WITH PRECISION</span>
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <span class="footer-copy">© 2026 VAIBHAVI SINGH · ALL RIGHTS RESERVED</span>
+        <span class="footer-credit">
+          3D Brain Mesh: <a href="https://3d.nih.gov/entries/3DPX-021161" target="_blank" rel="noopener">Detailed Human Brain Model</a> by Schmidt's / NIH 3D (CC BY 4.0).
+        </span>
+      </div>
+
+      <div class="footer-right">
+        <!-- Live Build Stamp injected at commit time -->
+        <span class="build-stamp-display" id="footer-build-stamp">BUILD 8947ab0 · 12:54</span>
+        <a href="#hero" class="back-to-top" aria-label="Return to top of page">TOP ↑</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Copied Toast Notification -->
+  <div id="toast" class="toast-popup" aria-hidden="true">Email copied to clipboard</div>
+
+  <!-- Pinned Three.js Core & Addons (Local Vendored r160) -->
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/GLTFLoader.js"></script>
+  <script src="vendor/MeshSurfaceSampler.js"></script>
+
+  <!-- Main Art-Directed Portfolio Engine -->
   <script src="script.js"></script>
 </body>
 </html>
