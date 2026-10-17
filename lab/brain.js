@@ -13,21 +13,23 @@
   // Configuration & Constants
   // --------------------------------------------------------------------------
   const CONFIG = {
-    desktopCount: 4000,   // Sparser count for crisp, non-streaking tokens
-    mobileCount: 2000,
+    desktopShapeDots: 32000,   // Layer (a): 32k tiny dots defining silhouette & folds
+    mobileShapeDots: 12000,
+    desktopCodeTokens: 1800,   // Layer (b): 1.8k legible tokens on gyri crests
+    mobileCodeTokens: 800,
     atlasCols: 16,
     atlasRows: 38,
     cellWidth: 192,
     cellHeight: 32,
 
     // Anatomical Camera View Modes (Mesh Centered at Origin):
-    // - 3/4 View: Lateral profile angled ~25° toward viewer, slight elevation
     // - Side View: Pure lateral (Frontal on left, cerebellum/brainstem at back-bottom)
+    // - 3/4 View: Lateral profile angled ~25° toward viewer, slight elevation
     // - Top View: Superior looking down, showing longitudinal fissure
     views: {
-      threequarter: { ry: 1.12, rx: 0.18, swayY: 0.20, swayX: 0.05 },
-      side:         { ry: 1.5708, rx: 0.0, swayY: 0.08, swayX: 0.03 },
-      top:          { ry: 0.0, rx: 1.50, swayY: 0.08, swayX: 0.03 }
+      side:         { ry: 1.5708, rx: 0.0, swayY: 0.17, swayX: 0.03 },
+      threequarter: { ry: 1.12,   rx: 0.18, swayY: 0.18, swayX: 0.05 },
+      top:          { ry: 0.0,    rx: 1.50, swayY: 0.08, swayX: 0.03 }
     },
 
     palette: {
@@ -50,12 +52,15 @@
   // State Management
   const state = {
     isCalm: false,
-    viewMode: 'threequarter', // 'threequarter' | 'side' | 'top'
+    isDebugMesh: false,
+    viewMode: 'side', // 'side' (default) | 'threequarter' | 'top'
     assemblyStartTime: 0,
     assemblyDuration: 2.2,
     hoveredHemisphere: null,
     activeRegionId: -1,
     particleCount: 0,
+    shapeDotCount: 0,
+    codeTokenCount: 0,
     fps: 60,
     frameCount: 0,
     lastTime: performance.now(),
@@ -64,14 +69,14 @@
     mouseWorldPos: new THREE.Vector3(-999, -999, -999),
     isDragging: false,
     dragStart: { x: 0, y: 0 },
-    currentRot: { x: CONFIG.views.threequarter.rx, y: CONFIG.views.threequarter.ry },
-    targetRot: { x: CONFIG.views.threequarter.rx, y: CONFIG.views.threequarter.ry },
+    currentRot: { x: CONFIG.views.side.rx, y: CONFIG.views.side.ry },
+    targetRot: { x: CONFIG.views.side.rx, y: CONFIG.views.side.ry },
     hasReportedFps: false
   };
 
   // Three.js instances
   let renderer, scene, camera;
-  let brainMesh, neuralLinesMesh;
+  let brainMesh, shapePointsMesh, neuralLinesMesh, debugMesh;
   let tokenData = [];
   let tokenAspects = [];
   let atlasTexture;
@@ -89,6 +94,9 @@
     if (urlParams.get('calm') === '1') {
       state.isCalm = true;
     }
+    if (urlParams.get('debug') === 'mesh') {
+      state.isDebugMesh = true;
+    }
     const viewParam = urlParams.get('view');
     if (CONFIG.views[viewParam]) {
       state.viewMode = viewParam;
@@ -104,9 +112,11 @@
       } catch (e) {}
     }
 
-    // Determine Particle Density
+    // Determine Particle Density for Two Layers:
     const isMobile = window.innerWidth < 768;
-    state.particleCount = isMobile ? CONFIG.mobileCount : CONFIG.desktopCount;
+    state.shapeDotCount = isMobile ? CONFIG.mobileShapeDots : CONFIG.desktopShapeDots;
+    state.codeTokenCount = isMobile ? CONFIG.mobileCodeTokens : CONFIG.desktopCodeTokens;
+    state.particleCount = state.shapeDotCount + state.codeTokenCount;
 
     // Setup Three.js Core
     setupScene(container);
@@ -123,7 +133,9 @@
     }
 
     // Build Curving Outward Pathways
-    buildCurvedNeuralPathways();
+    if (!state.isDebugMesh) {
+      buildCurvedNeuralPathways();
+    }
 
     // Set Initial View Mode
     applyViewMode(state.viewMode, true);
@@ -167,6 +179,26 @@
     renderer.setClearColor(0x050505, 1.0);
     container.appendChild(renderer.domElement);
 
+    if (state.isDebugMesh) {
+      // Key light: Upper front-left
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.6);
+      keyLight.position.set(-2.0, 3.0, 3.0);
+      scene.add(keyLight);
+
+      // Fill light: lower right
+      const fillLight = new THREE.DirectionalLight(0x708294, 0.7);
+      fillLight.position.set(2.5, -1.5, 1.5);
+      scene.add(fillLight);
+
+      // Rim light: top-back
+      const rimLight = new THREE.DirectionalLight(0x90a4b8, 0.5);
+      rimLight.position.set(0, 3.0, -3.0);
+      scene.add(rimLight);
+
+      const ambLight = new THREE.AmbientLight(0x22252a, 0.9);
+      scene.add(ambLight);
+    }
+
     raycaster = new THREE.Raycaster();
     planeHit = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
   }
@@ -185,6 +217,14 @@
     if (immediate) {
       state.currentRot.x = v.rx;
       state.currentRot.y = v.ry;
+      if (debugMesh) {
+        debugMesh.rotation.x = v.rx;
+        debugMesh.rotation.y = v.ry;
+      }
+      if (shapePointsMesh) {
+        shapePointsMesh.rotation.x = v.rx;
+        shapePointsMesh.rotation.y = v.ry;
+      }
       if (brainMesh) {
         brainMesh.rotation.x = v.rx;
         brainMesh.rotation.y = v.ry;
@@ -295,7 +335,7 @@
     }
 
     const curvature = new Float32Array(numVerts);
-    const weights = new Float32Array(numVerts);
+    const sortedC = [];
 
     for (let i = 0; i < numVerts; i++) {
       const px = pos.getX(i), py = pos.getY(i), pz = pos.getZ(i);
@@ -312,23 +352,48 @@
 
       const c = count > 0 ? (sum / count) : 0;
       curvature[i] = c;
+      sortedC.push(c);
+    }
 
-      // Ridge weight: ridges get weight up to 2.5; sulci get 0.15
-      if (c > 0.05) {
-        weights[i] = Math.min(2.5, 1.0 + c * 3.5);
+    sortedC.sort((a, b) => a - b);
+    const p08 = sortedC[Math.floor(numVerts * 0.08)];
+    const p65 = sortedC[Math.floor(numVerts * 0.65)];
+    const p95 = sortedC[Math.floor(numVerts * 0.95)];
+    const denom = Math.max(0.0001, p95 - p08);
+
+    const normCurvature = new Float32Array(numVerts);
+    const crestWeights = new Float32Array(numVerts);
+    const colors = new Float32Array(numVerts * 3);
+
+    for (let i = 0; i < numVerts; i++) {
+      const c = curvature[i];
+      // Normalized curvature: 0.0 in deepest sulci, 1.0 on gyri crests
+      const nc = Math.max(0.0, Math.min(1.0, (c - p08) / denom));
+      normCurvature[i] = nc;
+
+      // Color attribute is automatically interpolated by MeshSurfaceSampler!
+      // r = normalized curvature [0, 1] for shading and AO
+      colors[i * 3]     = nc;
+      colors[i * 3 + 1] = nc;
+      colors[i * 3 + 2] = nc;
+
+      // Crest weights: only vertices in top 35% percentile get weight > 0
+      if (c > p65) {
+        crestWeights[i] = Math.pow((c - p65) / (p95 - p65 + 0.001), 2.0) + 0.05;
       } else {
-        weights[i] = Math.max(0.12, 0.40 + c * 1.5);
+        crestWeights[i] = 0.0;
       }
     }
 
-    geometry.setAttribute('weight', new THREE.BufferAttribute(weights, 1));
-    geometry.setAttribute('curvature', new THREE.BufferAttribute(curvature, 1));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute('crestWeight', new THREE.BufferAttribute(crestWeights, 1));
+    geometry.setAttribute('normCurvature', new THREE.BufferAttribute(normCurvature, 1));
 
-    return { curvature, weights };
+    return { normCurvature, crestWeights };
   }
 
   // --------------------------------------------------------------------------
-  // Load Real Anatomical 3D Brain Mesh & Sample Particles
+  // Load Real Anatomical 3D Brain Mesh & Sample Both Layers
   // --------------------------------------------------------------------------
   async function loadAnatomicalBrainMesh() {
     return new Promise((resolve, reject) => {
@@ -349,36 +414,230 @@
         const geometry = baseMesh.geometry;
         geometry.computeVertexNormals();
 
-        // Compute Bounding Box & Scale to fit viewport comfortably
+        // Compute Bounding Box & Scale to fit viewport comfortably (55-60% viewport height)
         geometry.computeBoundingBox();
         const bbox = geometry.boundingBox;
-        const center = new THREE.Vector3();
-        bbox.getCenter(center);
         const size = new THREE.Vector3();
         bbox.getSize(size);
         const maxDim = Math.max(size.x, size.y, size.z);
-        const scaleFactor = 1.95 / maxDim;
+        const targetDim = 1.28; // Brain occupies ~57% of viewport height at distance 3.25
+        const scaleFactor = targetDim / maxDim;
+
+        // Center and scale geometry directly in local coordinates
+        geometry.center();
+        geometry.scale(scaleFactor, scaleFactor, scaleFactor);
+        geometry.computeVertexNormals();
+
+        if (state.isDebugMesh) {
+          const debugMat = new THREE.MeshStandardMaterial({
+            color: 0x8a929b,
+            roughness: 0.45,
+            metalness: 0.05,
+            flatShading: false
+          });
+          baseMesh.material = debugMat;
+          baseMesh.rotation.order = 'YXZ';
+          baseMesh.rotation.x = state.currentRot.x;
+          baseMesh.rotation.y = state.currentRot.y;
+          scene.add(baseMesh);
+          debugMesh = baseMesh;
+          resolve();
+          return;
+        }
 
         // Compute Curvature & Surface Weights
         computeMeshCurvature(geometry);
 
-        // Build Surface Sampler with area-weighting and ridge bias
-        const sampler = new THREE.MeshSurfaceSampler(baseMesh)
-          .setWeightAttribute('weight')
-          .build();
+        // 1. Build Sampler for Shape Layer (uniform surface sampling)
+        const shapeSampler = new THREE.MeshSurfaceSampler(baseMesh).build();
+        buildShapePointsLayer(shapeSampler);
 
-        // Create Instanced Particles
-        buildParticleGeometryFromSampler(sampler, center, scaleFactor);
+        // 2. Build Sampler for Code Layer (gyri crests only)
+        const codeSampler = new THREE.MeshSurfaceSampler(baseMesh)
+          .setWeightAttribute('crestWeight')
+          .build();
+        buildCodeTokenLayer(codeSampler);
+
         resolve();
       }, undefined, reject);
     });
   }
 
   // --------------------------------------------------------------------------
-  // Build Particle Cloud from Sampler (Instanced Quads, 1 Draw Call)
+  // Layer (a): Shape Layer (25,000–40,000 tiny dots, THREE.Points, 1 Draw Call)
   // --------------------------------------------------------------------------
-  function buildParticleGeometryFromSampler(sampler, meshCenter, scaleFactor) {
-    const count = state.particleCount;
+  function buildShapePointsLayer(sampler) {
+    const count = state.shapeDotCount;
+
+    const geometry = new THREE.BufferGeometry();
+    const posArray        = new Float32Array(count * 3);
+    const startPosArray   = new Float32Array(count * 3);
+    const normalArray     = new Float32Array(count * 3);
+    const curvatureArray  = new Float32Array(count);
+    const hemisphereArray = new Float32Array(count); // -1 = Left, +1 = Right
+    const delayArray      = new Float32Array(count);
+
+    const samplePos = new THREE.Vector3();
+    const sampleNorm = new THREE.Vector3();
+    const sampleColor = new THREE.Color();
+
+    for (let i = 0; i < count; i++) {
+      sampler.sample(samplePos, sampleNorm, sampleColor);
+
+      const px = samplePos.x;
+      const py = samplePos.y;
+      const pz = samplePos.z;
+
+      posArray[i * 3]     = px;
+      posArray[i * 3 + 1] = py;
+      posArray[i * 3 + 2] = pz;
+
+      // Dispersed starting position for assembly sequence
+      const explodeR = 1.6 + Math.random() * 1.8;
+      startPosArray[i * 3]     = px * explodeR + (Math.random() - 0.5) * 0.4;
+      startPosArray[i * 3 + 1] = py * explodeR + (Math.random() - 0.5) * 0.4;
+      startPosArray[i * 3 + 2] = pz * explodeR + (Math.random() - 0.5) * 0.4;
+
+      normalArray[i * 3]     = sampleNorm.x;
+      normalArray[i * 3 + 1] = sampleNorm.y;
+      normalArray[i * 3 + 2] = sampleNorm.z;
+
+      // Curvature from interpolated color attribute (r in [0, 1])
+      curvatureArray[i] = sampleColor.r;
+
+      // Hemisphere (px < 0 is Left, px >= 0 is Right)
+      hemisphereArray[i] = (px >= 0.0) ? 1.0 : -1.0;
+
+      // Staggered delay for organic inflow
+      delayArray[i] = Math.random() * 0.45;
+    }
+
+    geometry.setAttribute('position',    new THREE.BufferAttribute(posArray, 3));
+    geometry.setAttribute('aStartPos',   new THREE.BufferAttribute(startPosArray, 3));
+    geometry.setAttribute('aNormal',     new THREE.BufferAttribute(normalArray, 3));
+    geometry.setAttribute('aCurvature',  new THREE.BufferAttribute(curvatureArray, 1));
+    geometry.setAttribute('aHemisphere', new THREE.BufferAttribute(hemisphereArray, 1));
+    geometry.setAttribute('aDelay',      new THREE.BufferAttribute(delayArray, 1));
+
+    const material = createShapePointsMaterial();
+
+    if (shapePointsMesh) {
+      scene.remove(shapePointsMesh);
+      shapePointsMesh.geometry.dispose();
+    }
+
+    shapePointsMesh = new THREE.Points(geometry, material);
+    shapePointsMesh.frustumCulled = false;
+    shapePointsMesh.rotation.order = 'YXZ';
+    shapePointsMesh.rotation.x = state.currentRot.x;
+    shapePointsMesh.rotation.y = state.currentRot.y;
+
+    scene.add(shapePointsMesh);
+  }
+
+  // --------------------------------------------------------------------------
+  // Shape Layer Shader Material (Key Light Lambert × Curvature AO)
+  // --------------------------------------------------------------------------
+  function createShapePointsMaterial() {
+    const vertexShader = `
+      uniform float uTime;
+      uniform float uAssemblyProgress;
+      uniform vec3  uMouseWorld;
+      uniform float uHoveredLeft;
+      uniform float uHoveredRight;
+      uniform float uCalmMode;
+
+      attribute vec3  aStartPos;
+      attribute vec3  aNormal;
+      attribute float aCurvature;
+      attribute float aHemisphere;
+      attribute float aDelay;
+
+      varying vec3  vColor;
+      varying float vAlpha;
+
+      void main() {
+        // Assembly Interpolation (Dots assemble first)
+        float tProg = clamp((uAssemblyProgress * 1.5 - aDelay), 0.0, 1.0);
+        float ease = (uAssemblyProgress >= 0.999) ? 1.0 : (1.0 - pow(1.0 - tProg, 3.0));
+        vec3 instPos = mix(aStartPos, position, ease);
+
+        // Micro-breathing motion (stops in Calm Mode)
+        if (uCalmMode < 0.5) {
+          instPos += aNormal * (sin(uTime * 1.2 + position.y * 3.5) * 0.003 * aCurvature);
+        }
+
+        // Interactive Cursor Impulse
+        float distToMouse = distance(instPos, uMouseWorld);
+        if (distToMouse < 0.40 && uMouseWorld.x > -900.0) {
+          float force = (1.0 - distToMouse / 0.40) * 0.06;
+          instPos += aNormal * force;
+        }
+
+        vec4 mvPosition = modelViewMatrix * vec4(instPos, 1.0);
+        gl_Position = projectionMatrix * mvPosition;
+
+        // 1-2px tiny dots with depth attenuation
+        gl_PointSize = clamp(1.8 * (300.0 / -mvPosition.z), 1.2, 2.6);
+
+        // Key Light Shading from upper front-left
+        vec3 keyLight = normalize(vec3(-0.6, 0.8, 0.9));
+        vec3 viewNorm = normalize((modelViewMatrix * vec4(aNormal, 0.0)).xyz);
+        float NdotL = max(0.0, dot(viewNorm, keyLight));
+        float lambert = 0.22 + 0.78 * NdotL;
+
+        // Curvature / AO: sulci clearly darker than gyri crests
+        float ao = mix(0.14, 1.20, aCurvature);
+        float brightness = lambert * ao;
+
+        // Palette & Hemisphere Tint
+        vec3 baseCol = vec3(0.92, 0.94, 0.97); // Cool architectural off-white
+        if (aHemisphere < 0.0) {
+          baseCol = mix(baseCol, vec3(0.80, 0.93, 0.98), 0.30 + uHoveredLeft * 0.50);
+        } else {
+          baseCol = mix(baseCol, vec3(0.97, 0.93, 0.84), 0.30 + uHoveredRight * 0.50);
+        }
+
+        vColor = baseCol * brightness;
+        vAlpha = mix(0.38, 0.92, aCurvature) * ease;
+      }
+    `;
+
+    const fragmentShader = `
+      varying vec3  vColor;
+      varying float vAlpha;
+
+      void main() {
+        vec2 coord = gl_PointCoord - vec2(0.5);
+        float dist = length(coord);
+        if (dist > 0.5) discard;
+        float soft = smoothstep(0.5, 0.15, dist);
+        gl_FragColor = vec4(vColor, vAlpha * soft);
+      }
+    `;
+
+    return new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms: {
+        uTime:             { value: 0 },
+        uAssemblyProgress: { value: 0 },
+        uMouseWorld:       { value: new THREE.Vector3(-999, -999, -999) },
+        uHoveredLeft:      { value: 0.0 },
+        uHoveredRight:     { value: 0.0 },
+        uCalmMode:         { value: 0.0 }
+      },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.NormalBlending
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // Layer (b): Code Layer (1,500–2,500 Legible Tokens on Gyri Crests, 1 Draw Call)
+  // --------------------------------------------------------------------------
+  function buildCodeTokenLayer(sampler) {
+    const count = state.codeTokenCount;
 
     // Base Quad Geometry (1 quad = 2 triangles)
     const baseGeo = new THREE.PlaneGeometry(1.0, 1.0, 1, 1);
@@ -400,6 +659,7 @@
 
     const samplePos = new THREE.Vector3();
     const sampleNorm = new THREE.Vector3();
+    const sampleColor = new THREE.Color();
     const upVector = new THREE.Vector3(0, 1, 0);
 
     const cols = CONFIG.atlasCols;
@@ -407,11 +667,11 @@
     const totalTokens = Math.min(tokenData.length, cols * rows);
 
     for (let i = 0; i < count; i++) {
-      sampler.sample(samplePos, sampleNorm);
+      sampler.sample(samplePos, sampleNorm, sampleColor);
 
-      const cx = (samplePos.x - meshCenter.x) * scaleFactor;
-      const cy = (samplePos.y - meshCenter.y) * scaleFactor;
-      const cz = (samplePos.z - meshCenter.z) * scaleFactor;
+      const cx = samplePos.x;
+      const cy = samplePos.y;
+      const cz = samplePos.z;
 
       const nx = sampleNorm.x;
       const ny = sampleNorm.y;
@@ -437,53 +697,39 @@
       // Skill Region Mapping (3 Left, 3 Right)
       let regionId = 0;
       if (!isRight) {
-        // Left Hemisphere: Logic / Systems
-        if (cz < -0.15 && cy > 0.10) {
+        if (cz < -0.10 && cy > 0.05) {
           regionId = 0; // RAG & RETRIEVAL (Frontal superior)
-        } else if (cy > -0.15 && cz < 0.25) {
+        } else if (cy > -0.10 && cz < 0.20) {
           regionId = 1; // AGENTS (Executive center)
         } else {
           regionId = 2; // FULL-STACK (Temporal & inferior)
         }
       } else {
-        // Right Hemisphere: Research / Data
-        if (cz < 0.05 && cy > 0.10) {
-          regionId = 3; // DATA & ML (Parietal computational)
-        } else if (cy > -0.15 && cz < 0.30) {
-          regionId = 4; // LLMOPS & EVALUATION (Lateral monitoring)
+        if (cz < 0.05 && cy > 0.05) {
+          regionId = 3; // DATA & ML (Frontal/Parietal research)
+        } else if (cz >= 0.05 && cy > -0.10) {
+          regionId = 4; // LLMOPS & EVAL (Occipital / Evaluation)
         } else {
-          regionId = 5; // RESEARCH (Occipital exploratory)
+          regionId = 5; // RESEARCH (Temporal / Deep Research)
         }
       }
 
-      // Gyri Ridge Brightness vs Sulcus
-      const radVec = new THREE.Vector3(cx, cy, cz).normalize();
-      const dotRad = sampleNorm.dot(radVec);
-      const ridgeVal = Math.max(0.0, Math.min(1.0, (dotRad - 0.22) * 1.8));
-
-      // Initial Dispersal for Assembly Animation
-      const disperseDist = 1.8 + Math.random() * 2.5;
-      const dispTheta = Math.random() * Math.PI * 2;
-      const dispPhi = Math.acos(Math.random() * 2 - 1);
-      const sx = cx + Math.sin(dispPhi) * Math.cos(dispTheta) * disperseDist;
-      const sy = cy + Math.sin(dispPhi) * Math.sin(dispTheta) * disperseDist;
-      const sz = cz + Math.cos(dispPhi) * disperseDist;
-
-      // Token Atlas Index
+      // Assign token from atlas
       const tokenIdx = i % totalTokens;
       const col = tokenIdx % cols;
       const row = Math.floor(tokenIdx / cols);
       const u = col / cols;
       const v = row / rows;
-      const aspect = tokenAspects[tokenIdx] || 0.5;
 
       posArray[i * 3]     = cx;
       posArray[i * 3 + 1] = cy;
       posArray[i * 3 + 2] = cz;
 
-      startPosArray[i * 3]     = sx;
-      startPosArray[i * 3 + 1] = sy;
-      startPosArray[i * 3 + 2] = sz;
+      // Dispersed start position for assembly
+      const explodeR = 2.0 + Math.random() * 1.5;
+      startPosArray[i * 3]     = cx * explodeR + (Math.random() - 0.5) * 0.5;
+      startPosArray[i * 3 + 1] = cy * explodeR + (Math.random() - 0.5) * 0.5;
+      startPosArray[i * 3 + 2] = cz * explodeR + (Math.random() - 0.5) * 0.5;
 
       normalArray[i * 3]     = nx;
       normalArray[i * 3 + 1] = ny;
@@ -496,10 +742,10 @@
       atlasUVArray[i * 2]     = u;
       atlasUVArray[i * 2 + 1] = v;
 
-      aspectArray[i]          = aspect;
-      delayArray[i]           = Math.random() * 0.9;
+      aspectArray[i]          = tokenAspects[tokenIdx] || 0.5;
+      delayArray[i]           = Math.random() * 0.7;
       regionIdArray[i]        = regionId;
-      ridgeArray[i]           = ridgeVal;
+      ridgeArray[i]           = sampleColor.r; // Curvature term
       hemisphereArray[i]      = hemiSign;
     }
 
@@ -514,7 +760,6 @@
     geometry.setAttribute('aRidge',       new THREE.InstancedBufferAttribute(ridgeArray, 1));
     geometry.setAttribute('aHemisphere',  new THREE.InstancedBufferAttribute(hemisphereArray, 1));
 
-    // Custom Shader Material
     const material = createBrainShaderMaterial();
 
     if (brainMesh) {
@@ -532,7 +777,7 @@
   }
 
   // --------------------------------------------------------------------------
-  // Custom Brain Shader Material (Tangent-Oriented, Legible Micro-Tokens)
+  // Custom Brain Shader Material (Tangent-Oriented, 40% Smaller Tokens)
   // --------------------------------------------------------------------------
   function createBrainShaderMaterial() {
     const vertexShader = `
@@ -562,33 +807,32 @@
       varying float vAlpha;
 
       void main() {
-        // Assembly Interpolation
-        float tProg = clamp((uAssemblyProgress - aDelay) / 1.3, 0.0, 1.0);
-        float ease = 1.0 - pow(1.0 - tProg, 3.0);
+        // Assembly Interpolation (Tokens assemble after dots)
+        float tProg = clamp((uAssemblyProgress * 1.5 - aDelay), 0.0, 1.0);
+        float ease = (uAssemblyProgress >= 0.999) ? 1.0 : (1.0 - pow(1.0 - tProg, 3.0));
         vec3 instPos = mix(aStartPos, aInstancePos, ease);
 
         // Breathing / Micro Motion (stops in Calm Mode)
         if (uCalmMode < 0.5) {
-          instPos += aNormal * (sin(uTime * 1.2 + aInstancePos.y * 3.5) * 0.005 * aRidge);
+          instPos += aNormal * (sin(uTime * 1.2 + aInstancePos.y * 3.5) * 0.0035 * aRidge);
         }
 
         // Interactive Cursor Impulse
         float distToMouse = distance(instPos, uMouseWorld);
-        if (distToMouse < 0.45 && uMouseWorld.x > -900.0) {
-          float force = (1.0 - distToMouse / 0.45) * 0.08;
+        if (distToMouse < 0.40 && uMouseWorld.x > -900.0) {
+          float force = (1.0 - distToMouse / 0.40) * 0.06;
           instPos += aNormal * force;
         }
 
-        // Local quad sizing based on token aspect ratio
-        float tokenWidth = 0.14 * aTokenAspect;
-        float tokenHeight = 0.024;
+        // Local quad sizing: 40% smaller than Round 3
+        float tokenWidth = 0.082 * aTokenAspect;
+        float tokenHeight = 0.014;
 
         // Tangent frame alignment:
-        // position.x in [-0.5, 0.5], position.y in [-0.5, 0.5]
         vec3 bitangent = normalize(cross(aNormal, aTangent));
         vec3 localOffset = (aTangent * (position.x * tokenWidth)) +
                            (bitangent * (position.y * tokenHeight)) +
-                           (aNormal * 0.003); // float slightly above surface
+                           (aNormal * 0.0035); // float subtly above dots layer
 
         vec3 worldPos = instPos + localOffset;
         vec4 mvPosition = modelViewMatrix * vec4(worldPos, 1.0);
@@ -600,9 +844,9 @@
         // Palette & Hemisphere Tint
         vec3 col = vec3(0.93, 0.95, 0.97); // Cool off-white
         if (aHemisphere < 0.0) {
-          col = mix(col, vec3(0.82, 0.94, 0.98), 0.35 + uHoveredLeft * 0.45);
+          col = mix(col, vec3(0.80, 0.93, 0.98), 0.35 + uHoveredLeft * 0.45);
         } else {
-          col = mix(col, vec3(0.97, 0.93, 0.85), 0.35 + uHoveredRight * 0.45);
+          col = mix(col, vec3(0.97, 0.93, 0.84), 0.35 + uHoveredRight * 0.45);
         }
 
         // Active Region Highlight
@@ -614,18 +858,17 @@
           }
         }
 
-        // Directional Light & Volumetric Depth
-        vec3 lightDir = normalize(vec3(0.5, 0.8, 1.0));
+        // Same Key Light Shading as Shape Layer (upper front-left)
+        vec3 keyLight = normalize(vec3(-0.6, 0.8, 0.9));
         vec3 viewNorm = normalize((modelViewMatrix * vec4(aNormal, 0.0)).xyz);
-        float diffuse = max(0.45, dot(viewNorm, lightDir));
-        float depthAtten = clamp(1.0 + mvPosition.z * 0.18, 0.65, 1.0);
+        float NdotL = max(0.0, dot(viewNorm, keyLight));
+        float lambert = 0.25 + 0.75 * NdotL;
+        float depthAtten = clamp(1.0 + mvPosition.z * 0.18, 0.70, 1.0);
 
-        // Ridge brightness boost vs sulcus valleys
-        float ridgeFactor = mix(0.55, 1.30, aRidge);
-        vColor = col * diffuse * depthAtten * ridgeFactor;
+        vColor = col * lambert * depthAtten * 1.15;
 
         // Base Opacity
-        float baseAlpha = mix(0.65, 0.95, aRidge);
+        float baseAlpha = mix(0.70, 0.95, aRidge);
         if (uActiveRegion >= 0.0 && abs(aRegionId - uActiveRegion) > 0.1) {
           baseAlpha *= 0.25;
         }
@@ -901,7 +1144,10 @@
 
     updateUIElements();
 
-    if (brainMesh) {
+    if (shapePointsMesh && shapePointsMesh.material.uniforms) {
+      shapePointsMesh.material.uniforms.uCalmMode.value = state.isCalm ? 1.0 : 0.0;
+    }
+    if (brainMesh && brainMesh.material.uniforms) {
       brainMesh.material.uniforms.uCalmMode.value = state.isCalm ? 1.0 : 0.0;
     }
   }
@@ -915,7 +1161,11 @@
 
     const countElem = document.getElementById('metric-particle-count');
     if (countElem) {
-      countElem.textContent = state.particleCount.toLocaleString();
+      if (state.isDebugMesh) {
+        countElem.textContent = 'RAW MESH';
+      } else {
+        countElem.textContent = state.particleCount.toLocaleString();
+      }
     }
 
     document.querySelectorAll('.view-btn').forEach(btn => {
@@ -948,17 +1198,25 @@
       }
     }
 
-    // Assembly Progression
+    // Assembly Progression: Dots assemble first (0 to 1.2s), then tokens (0.5 to 2.0s)
     const elapsedAssembly = (now - state.assemblyStartTime) * 0.001;
-    const assemblyFactor = Math.min(elapsedAssembly, state.assemblyDuration);
+    const dotsProgress = Math.min(elapsedAssembly / 1.2, 1.0);
+    const tokensProgress = Math.max(0.0, Math.min((elapsedAssembly - 0.5) / 1.5, 1.0));
 
     // Camera Angle & Idle Sway
-    const v = CONFIG.views[state.viewMode] || CONFIG.views.threequarter;
+    const v = CONFIG.views[state.viewMode] || CONFIG.views.side;
     if (!state.isCalm) {
       if (!state.isDragging) {
         const t = now * 0.001;
-        state.targetRot.y = v.ry + Math.sin(t * 0.42) * v.swayY;
-        state.targetRot.x = v.rx + Math.sin(t * 0.28) * v.swayX;
+        if (state.viewMode === 'side') {
+          // Drifts slowly within ±20° toward 3/4
+          const driftOffset = 0.17;
+          state.targetRot.y = v.ry - driftOffset + Math.sin(t * 0.35) * driftOffset;
+          state.targetRot.x = v.rx + Math.sin(t * 0.22) * 0.03;
+        } else {
+          state.targetRot.y = v.ry + Math.sin(t * 0.42) * v.swayY;
+          state.targetRot.x = v.rx + Math.sin(t * 0.28) * v.swayX;
+        }
       }
     } else {
       if (!state.isDragging) {
@@ -971,6 +1229,16 @@
     state.currentRot.y += (state.targetRot.y - state.currentRot.y) * 0.12;
     state.currentRot.x += (state.targetRot.x - state.currentRot.x) * 0.12;
 
+    if (debugMesh) {
+      debugMesh.rotation.y = state.currentRot.y;
+      debugMesh.rotation.x = state.currentRot.x;
+    }
+
+    if (shapePointsMesh) {
+      shapePointsMesh.rotation.y = state.currentRot.y;
+      shapePointsMesh.rotation.x = state.currentRot.x;
+    }
+
     if (brainMesh) {
       brainMesh.rotation.y = state.currentRot.y;
       brainMesh.rotation.x = state.currentRot.x;
@@ -981,16 +1249,25 @@
       neuralLinesMesh.rotation.x = state.currentRot.x;
     }
 
-    // Uniform Updates
-    if (brainMesh) {
+    const targetLeft = (state.hoveredHemisphere === 'left') ? 1.0 : 0.0;
+    const targetRight = (state.hoveredHemisphere === 'right') ? 1.0 : 0.0;
+
+    // Uniform Updates for Shape Layer
+    if (shapePointsMesh && shapePointsMesh.material.uniforms) {
+      const uniforms = shapePointsMesh.material.uniforms;
+      uniforms.uTime.value = now * 0.001;
+      uniforms.uAssemblyProgress.value = dotsProgress;
+      uniforms.uMouseWorld.value.copy(state.mouseWorldPos);
+      uniforms.uHoveredLeft.value += (targetLeft - uniforms.uHoveredLeft.value) * 0.12;
+      uniforms.uHoveredRight.value += (targetRight - uniforms.uHoveredRight.value) * 0.12;
+    }
+
+    // Uniform Updates for Code Layer
+    if (brainMesh && brainMesh.material.uniforms) {
       const uniforms = brainMesh.material.uniforms;
       uniforms.uTime.value = now * 0.001;
-      uniforms.uAssemblyProgress.value = assemblyFactor;
+      uniforms.uAssemblyProgress.value = tokensProgress;
       uniforms.uMouseWorld.value.copy(state.mouseWorldPos);
-
-      const targetLeft = (state.hoveredHemisphere === 'left') ? 1.0 : 0.0;
-      const targetRight = (state.hoveredHemisphere === 'right') ? 1.0 : 0.0;
-
       uniforms.uHoveredLeft.value += (targetLeft - uniforms.uHoveredLeft.value) * 0.12;
       uniforms.uHoveredRight.value += (targetRight - uniforms.uHoveredRight.value) * 0.12;
     }
