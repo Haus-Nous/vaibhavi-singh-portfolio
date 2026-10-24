@@ -1128,7 +1128,104 @@ body.calm-mode .orbital-ring {
 }
 
 /* ============================================================================
-   05 · ADAPTIVE INTELLIGENCE (EXPERIENCE)
+   05 · FRONTIER FOCUS (AREAS OF INTEREST)
+   ============================================================================ */
+.interests-section {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--line-dim);
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.interest-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-dim);
+  padding: 30px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.interest-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan-ice);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--cyan-glow);
+}
+
+.interest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.interest-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--cyan-ice);
+}
+
+.interest-domain {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.interest-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-white);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.interest-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.interest-bullets {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.interest-bullets li {
+  position: relative;
+  padding-left: 14px;
+}
+.interest-bullets li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--cyan-ice);
+  font-weight: bold;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+/* ============================================================================
+   06 · ADAPTIVE INTELLIGENCE (EXPERIENCE)
    ============================================================================ */
 .adaptive-section {
   padding: 120px 0;
@@ -1275,12 +1372,98 @@ body.calm-mode .orbital-ring {
   color: var(--champagne);
   border: 1px solid rgba(212, 168, 83, 0.4);
 }
+.status-badge.pinned {
+  background: var(--cyan-dim);
+  color: var(--cyan-ice);
+  border: 1px solid rgba(130, 216, 247, 0.45);
+}
+.status-badge.landing {
+  background: rgba(61, 214, 140, 0.14);
+  color: var(--green-online);
+  border: 1px solid rgba(61, 214, 140, 0.4);
+}
 
 .platform-badge {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   color: var(--text-dim);
+}
+
+/* Landing Page Preview Box */
+.landing-page-preview {
+  margin: 16px 0 20px;
+  border: 1px solid var(--line-medium);
+  background: #040608;
+  border-radius: 3px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+.landing-preview-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: #090c10;
+  border-bottom: 1px solid var(--line-dim);
+  font-size: 10px;
+  color: var(--text-dim);
+}
+.landing-preview-dots {
+  display: flex;
+  gap: 5px;
+}
+.landing-preview-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+.landing-preview-url {
+  color: var(--cyan-ice);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+.landing-preview-body {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.015);
+}
+.landing-preview-desc {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.btn-landing-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(61, 214, 140, 0.15);
+  color: var(--green-online);
+  border: 1px solid rgba(61, 214, 140, 0.45);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.btn-landing-live:hover {
+  background: rgba(61, 214, 140, 0.3);
+  box-shadow: 0 0 14px rgba(61, 214, 140, 0.35);
+  color: #fff;
+}
+.btn-landing-live .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-online);
+  box-shadow: 0 0 6px var(--green-online);
 }
 
 .featured-name {
@@ -1475,6 +1658,17 @@ body.calm-mode .orbital-ring {
 .card-status.hackathon {
   border-color: rgba(212, 168, 83, 0.3);
   color: var(--champagne);
+}
+.card-status.pinned {
+  border-color: rgba(130, 216, 247, 0.45);
+  color: var(--cyan-ice);
+  background: var(--cyan-dim);
+  font-weight: 600;
+}
+.card-status.landing {
+  border-color: rgba(61, 214, 140, 0.45);
+  color: var(--green-online);
+  background: rgba(61, 214, 140, 0.12);
 }
 
 .card-title {
@@ -1869,6 +2063,9 @@ body.calm-mode .orbital-ring {
     grid-template-columns: 1fr;
   }
   .featured-grid {
+    grid-template-columns: 1fr;
+  }
+  .interests-grid {
     grid-template-columns: 1fr;
   }
   .project-grid {
